@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<all_memos>
+	<user id="100">
+		<memo>
+			<username>admin</username>
+			<display_name>Alexander</display_name>
+			<memo_text>Lamar</memo_text>
+		</memo>
+    </user>
+    <last_updated>Thursday, May 26, 2016: 1:40 PM EST</last_updated>
+</all_memos>
