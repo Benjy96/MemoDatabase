@@ -1,3 +1,18 @@
+/* Color palette:
+
+	Primary:
+		Main - #5d4037
+		Light - #8b6b61
+		Dark - #321911
+		
+	Secondary:
+		Main - #009688
+		Light - #52c7b8
+		Dark - #00675b
+		
+	Assisted by: https://material.io/color
+*/
+
 .main-background { background-color: #eee; }
 
 .bottom-padding { margin-bottom: 15px; }
