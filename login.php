@@ -1,15 +1,12 @@
 <?php
 
-/*
+session_start();
 
-TO DO:
-
-IMPLEMENT POST/REDIRECT/GET PATTERN
-
-Problem - browser resubmitting post data on refreshes, meaning that the if statement (check submit) is always being entered
-
-
-*/
+if(isset($_SESSION["user"])){
+	header("memoIndex.php");
+}else{
+	checkSubmitted();
+}
 
 function getUsers($fileName){
 	//user file will be smaller than memo file, so use DOMDocument
@@ -20,38 +17,39 @@ function getUsers($fileName){
 	return $userList;
 }
 
-//check username and password against the xml user database
-if(isset($_POST["username"])){
-	
-	//Store passed in form values and reset the POST array
-	$username = $_POST["username"];
-	$password = $_POST["password"];
+//Check if a form has been submitted
+function checkSubmitted(){
+	//check username and password against the xml user database
+	if(isset($_POST["username"])){
+		
+		//Store passed in form values and reset the POST array
+		$username = $_POST["username"];
+		$password = $_POST["password"];
 
-	//Load in the list of users from an XML file
-	$userList = getUsers("userList.xml");
-	
-	//loop through DOMDocument
-	$root = $userList->documentElement;
-	$users = $root->childNodes->item(0);
-	
-	foreach ($users->childNodes as $iterator){	//go through each user
-		if($username == $iterator->childNodes->item(0)->nodeValue){	//if username matches, check <user> password
-			if($password == $iterator->childNodes->item(1)->nodeValue){	//if password matches
-				$_SESSION["user"] = $iterator->childNodes->item(0)->nodeValue;	//set a session variable - current user
-				echo "Current User: " . $_SESSION["user"];
-				break;
+		//Load in the list of users from an XML file
+		$userList = getUsers("userList.xml");
+		
+		//loop through DOMDocument
+		$root = $userList->documentElement;
+		$users = $root->childNodes->item(0);
+		
+		foreach ($users->childNodes as $iterator){	//go through each user
+			if($username == $iterator->childNodes->item(0)->nodeValue){	//if username matches, check <user> password
+				if($password == $iterator->childNodes->item(1)->nodeValue){	//if password matches
+					$_SESSION["user"] = $iterator->childNodes->item(0)->nodeValue;	//set a session variable - current user
+					echo "Current User: " . $_SESSION["user"];
+					break;
+				}
 			}
 		}
+	}else{
+		displayLogin();
 	}
-}else{
-	displayLogin();
 }
 
+//Display the login form
 function displayLogin(){
-
 ?>
-
-
 <!DOCTYPE html>
 <!-- HEADER -->
 <html lang="en">
