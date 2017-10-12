@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <all_memos>
 	<user id="100">
-		<memo>
-			<username>admin</username>
-			<display_name>Alexander</display_name>
-			<memo_text>Lamar on toast</memo_text>
+		<memo id = "001">
+			<title></title>
+			<sender></sender>
+			<recipient></recipient>
+			<date></date>
+			<body></body>
+			<url></url>
 		</memo>
 		
 		<!-- ANOTHER MEMO -->
