@@ -52,10 +52,10 @@ function displayLogin(){
 <!-- HEADER -->
 <html lang="en">
   <head>
-  <title>Memo Database</title>
+  <title>Memo Database Login</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS & JavaScript-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -70,7 +70,8 @@ function displayLogin(){
   </head>
   <!-- /HEADER -->
   
-  <body class="main-background"> <!-- BODY -->
+  <!-- BODY -->
+  <body class="main-background"> 
   
     <div><!-- LOGIN FORM -->
       <form class="login-form" action="login.php" method="post">
@@ -84,9 +85,11 @@ function displayLogin(){
        
         <button class="btn btn-primary" type="submit">Sign in</button>
       </form>
-    </div> <!-- /LOGIN FORM -->
+    </div> 
+	<!-- /LOGIN FORM -->
 	
-  </body> <!-- /BODY -->
+  </body> 
+  <!-- /BODY -->
 </html>
 <?php 
 }
