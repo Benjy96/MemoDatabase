@@ -1,5 +1,16 @@
 <?php
 
+/*
+
+TO DO:
+
+IMPLEMENT POST/REDIRECT/GET PATTERN
+
+Problem - browser resubmitting post data on refreshes, meaning that the if statement (check submit) is always being entered
+
+
+*/
+
 function getUsers($fileName){
 	//user file will be smaller than memo file, so use DOMDocument
 	$userList = new DOMDocument();
@@ -15,7 +26,6 @@ if(isset($_POST["username"])){
 	//Store passed in form values and reset the POST array
 	$username = $_POST["username"];
 	$password = $_POST["password"];
-	unset($_POST);
 
 	//Load in the list of users from an XML file
 	$userList = getUsers("userList.xml");
@@ -29,6 +39,7 @@ if(isset($_POST["username"])){
 			if($password == $iterator->childNodes->item(1)->nodeValue){	//if password matches
 				$_SESSION["user"] = $iterator->childNodes->item(0)->nodeValue;	//set a session variable - current user
 				echo "Current User: " . $_SESSION["user"];
+				break;
 			}
 		}
 	}
