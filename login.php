@@ -1,9 +1,8 @@
 <?php
-
 session_start();
 
 if(isset($_SESSION["user"])){
-	header("memoIndex.php");
+	header("Location: memoIndex.php");
 }else{
 	checkSubmitted();
 }
@@ -37,8 +36,7 @@ function checkSubmitted(){
 			if($username == $iterator->childNodes->item(0)->nodeValue){	//if username matches, check <user> password
 				if($password == $iterator->childNodes->item(1)->nodeValue){	//if password matches
 					$_SESSION["user"] = $iterator->childNodes->item(0)->nodeValue;	//set a session variable - current user
-					echo "Current User: " . $_SESSION["user"];
-					break;
+					header("Location: memoIndex.php"); //log in
 				}
 			}
 		}
@@ -90,5 +88,6 @@ function displayLogin(){
 	
   </body> <!-- /BODY -->
 </html>
-
-<?php } ?>
+<?php 
+}
+?>
