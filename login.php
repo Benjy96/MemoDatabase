@@ -1,5 +1,23 @@
-<!DOCTYPE html>
+<?php
 
+function getUsers($fileName){
+	$userList = new DOMDocument();
+	$userList->load($fileName) or die("Error loading XML");
+	return $userList;
+}
+
+//check username and password against the xml user database
+//user database is small so use domdocument
+if(isset($_POST["username"])){
+
+	$userList = getUsers("userList.xml");
+
+} else { 
+
+?>
+
+
+<!DOCTYPE html>
 <!-- HEADER -->
 <html lang="en">
   <head>
@@ -20,21 +38,24 @@
   
   </head>
   <!-- /HEADER -->
+  
   <body class="main-background"> <!-- BODY -->
   
-    <div>
-      <form class="login-form" action="memoIndex.php" method="post">	<!-- Send to PHP file via POST -->
+    <div><!-- LOGIN FORM -->
+      <form class="login-form" action="login.php" method="post">
         <h1 class="bottom-padding">Please sign in</h2>
 		<div class="form-group">
-			<input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+			<input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
 		</div>
 		<div class="form-group">
-			<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+			<input type="password" name="password" class="form-control" placeholder="Password" required>
 		</div>
        
         <button class="btn btn-primary" type="submit">Sign in</button>
       </form>
-    </div> <!-- /container -->
+    </div> <!-- /LOGIN FORM -->
 	
   </body> <!-- /BODY -->
 </html>
+
+<?php } ?>
