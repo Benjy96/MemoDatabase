@@ -1,10 +1,15 @@
 <?xml version="1.0"?>
 <userList>
 
-  <nextID>101</nextID>
+<users>
+	<user id="101">
+		<username>test</username>
+		<password>test</password>
+	</user>
 	<user id="100">
 	  <username>admin</username>
 	  <password>admin</password>
 	</user>
+</users>
 	
 </userList>

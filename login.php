@@ -1,18 +1,42 @@
 <?php
 
 function getUsers($fileName){
+	//user file will be smaller than memo file, so use DOMDocument
 	$userList = new DOMDocument();
+	$userList->formatOutput = true;
+	$userList->preserveWhiteSpace = false;
 	$userList->load($fileName) or die("Error loading XML");
 	return $userList;
 }
 
 //check username and password against the xml user database
-//user database is small so use domdocument
 if(isset($_POST["username"])){
+	
+	//Store passed in form values and reset the POST array
+	$username = $_POST["username"];
+	$password = $_POST["password"];
+	unset($_POST);
 
+	//Load in the list of users from an XML file
 	$userList = getUsers("userList.xml");
+	
+	//loop through DOMDocument
+	$root = $userList->documentElement;
+	$users = $root->childNodes->item(0);
+	
+	foreach ($users->childNodes as $iterator){	//go through each user
+		if($username == $iterator->childNodes->item(0)->nodeValue){	//if username matches, check <user> password
+			if($password == $iterator->childNodes->item(1)->nodeValue){	//if password matches
+				$_SESSION["user"] = $iterator->childNodes->item(0)->nodeValue;	//set a session variable - current user
+				echo "Current User: " . $_SESSION["user"];
+			}
+		}
+	}
+}else{
+	displayLogin();
+}
 
-} else { 
+function displayLogin(){
 
 ?>
 
