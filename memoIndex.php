@@ -4,6 +4,60 @@ if(!isset($_SESSION["user"])){
 	header("Location: login.php");
 }
 
+function displayAddMemoSection(){ ?>
+	<h4>Create a Memo:</h4>
+      <form role="form" action="addMemo.php" method="post">
+        <div class="form-group">
+          <input required name="memoTitle" type="text" class="form-control" placeholder="* Title..."/> 
+		</div>
+		<div class="form-group">
+          <textarea required name="memoBody" class="form-control" rows="3" placeholder="* Memo..."></textarea>
+        </div>
+		<div class="form-group">
+          <input required name="memoRecipient" type="text" class="form-control" placeholder="* Recipient(s)..."/> 
+		</div>
+		<div class="form-group">
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#memoURL">Optional URL</button>
+			<div id="memoURL" class="collapse">
+				  <input name="memoURL" type="text" class="form-control" placeholder="URL..."/> 
+			</div>
+		</div>
+		<br>
+		<span class="notice">* fields are required</span>
+		<br><br>
+		<button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+<?php 	
+}
+
+function displayAddMemoSectionInvalid(){ ?>
+	<h4>Create a Memo:</h4>
+      <form role="form" action="addMemo.php" method="post">
+        <div class="form-group">
+          <input required name="memoTitle" type="text" class="form-control" placeholder="* Title...">
+			<?php echo $_SESSION["title"]; ?>
+		  </input>
+		</div>
+		<div class="form-group">
+          <textarea required name="memoBody" class="form-control" rows="3" placeholder="* Memo..."></textarea>
+        </div>
+		<div class="form-group">
+          <input required name="memoRecipient" type="text" class="form-control" placeholder="* Recipient(s)..."/> 
+		</div>
+		<div class="form-group">
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#memoURL">Optional URL</button>
+			<div id="memoURL" class="collapse">
+				  <input name="memoURL" type="text" class="form-control" placeholder="URL..."/> 
+			</div>
+		</div>
+		<br>
+		<span class="notice">* fields are required</span>
+		<br><br>
+		<button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+<?php	
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -197,29 +251,13 @@ if(!isset($_SESSION["user"])){
       <hr>	<!-- SECTION SEPARATOR -->
 
 	  <!-- ADD MEMO SECTION -->
-      <h4>Create a Memo:</h4>
-      <form role="form" action="addMemo.php" method="post">
-        <div class="form-group">
-          <input required name="memoTitle" type="text" class="form-control" placeholder="* Title..."/> 
-		</div>
-		<div class="form-group">
-          <textarea required name="memoBody" class="form-control" rows="3" placeholder="* Memo..."></textarea>
-        </div>
-		<div class="form-group">
-          <input required name="memoRecipient" type="text" class="form-control" placeholder="* Recipient(s)..."/> 
-		</div>
-		<div class="form-group">
-		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#memoURL">Optional URL</button>
-			<div id="memoURL" class="collapse">
-				  <input name="memoURL" type="text" class="form-control" placeholder="URL..."/> 
-			</div>
-		</div>
-		<br>
-		<span class="notice">* fields are required</span>
-		<br><br>
-		<button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      
+      <?php 
+	  if(isset($_SESSION["memoTitle"])){
+		displayAddMemoSectionInvalid();
+	  }else{
+		displayAddMemoSection();
+	  }
+	  ?>
 	  <!-- /ADD MEMO SECTION -->
 	  
     </div>
