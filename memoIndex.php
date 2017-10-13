@@ -86,7 +86,6 @@ if(!isset($_SESSION["user"])){
 	
 	TO DO: 
 	
-	- Allow user to cycle through previous memos
 	- Complete the memo "template" in HTMLK:
 		- Add Next/previous buttons to memo
 	
