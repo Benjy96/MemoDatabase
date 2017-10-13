@@ -15,6 +15,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	$xml->preserveWhiteSpace = false;
 	$xml->loadXML($data) or die("Can't load memo XML file: addMemo.php");
 	
+	$rootElement = $xml->documentElement;
+	//get user element
+	//get latest memo number
+	//append new memo
+	
 	//Data to add to memo:
 	
 	/*
@@ -37,6 +42,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	*/
 }
 
+function getExplicitData(){
+	
+}
+
+function getImplicitData(){
+	$date = date(d-m-Y);
+	$sender = $_SESSION["user"];
+	$id = 
+}
 
 
 
