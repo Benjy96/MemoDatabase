@@ -79,7 +79,7 @@ if(!isset($_SESSION["user"])){
 	</button>
 	
 	<!-- MODAL -->
-	<div id="accModal" class="modal hide" role="dialog">
+	<div id="accModal" class="modal" role="dialog">
       <div class="modal-dialog">
         
 		<!-- MODAL CONTENT -->
@@ -122,13 +122,17 @@ if(!isset($_SESSION["user"])){
 	  <hr>
 	  <!-- /TOP -->
 	  
-	  <!-- SAMPLE MEMO SECTION-->
-	  <div id="memo">
+	  <!-- MEMO SECTION-->
+	  <div id="memo" class="well well-lg">
 		  <h2 id="title">Title</h2>
 		  <h5 id="date"><span class="glyphicon glyphicon-time"></span> Date</h5>
 		  <p id="body">Body</p>
 	  </div>
-	  <!-- /SAMPLE MEMO SECTION -->
+	  
+	  <button type="button" class="btn btn-primary disabled">Previous Memo</button>
+	  <button type="button" class="btn btn-primary">Next Memo</button>
+	  
+	  <!-- /MEMO SECTION -->
 	  
       <hr>	<!-- SECTION SEPARATOR -->
 

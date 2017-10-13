@@ -39,6 +39,12 @@
 	color: #FFFFFF;
 }
 
+.btn.btn-primary:hover{
+	background-color: #009688;
+	border-color: #009688;
+	color: #FFFFFF;
+}
+
 .sidenav {
 	background-color: #5d4037;
 	height: 100%;
