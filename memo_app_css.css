@@ -40,12 +40,6 @@
 	color: white;
 	padding: 15px;
 }
-	
-.footer {
-	background-color: #321911;
-	color: white;
-	padding: 15px;
-}
 
 .input-group{
 	margin-top: 20px;
@@ -53,6 +47,7 @@
 	margin-right: 5px;
 }
 
+/* GET A SCALABLE HEIGHT */
 .row.content { height: 1500px }
 
 .circle {

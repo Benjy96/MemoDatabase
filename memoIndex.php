@@ -111,6 +111,7 @@ if(!isset($_SESSION["user"])){
 	
 	<!-- JQuery -->
 	<script>
+	//Modal functionality
 	$(document).ready(function(){
 		$("#accButton").click(function(){
 			$("#accModal").modal();
@@ -125,6 +126,7 @@ if(!isset($_SESSION["user"])){
 
 <div class="container-fluid">
   <div class="row content">
+	<!-- SIDEBAR -->
     <div class="col-sm-3 sidenav">
 	
 	<!-- CURRENT USER -->	
@@ -168,6 +170,7 @@ if(!isset($_SESSION["user"])){
         </span>
       </div>
     </div>
+	<!-- /SIDERBAR -->
 
 	<!-- RIGHT CONTAINER -->
     <div class="col-sm-9">
@@ -189,7 +192,6 @@ if(!isset($_SESSION["user"])){
 	  
 	  <button type="button" id="prevMemoButton" onclick="previousMemo()" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
 	  <button type="button" id="nextMemoButton" onclick="nextMemo()" class="btn btn-primary">Next Memo</button>
-	  
 	  <!-- /MEMO SECTION -->
 	  
       <hr>	<!-- SECTION SEPARATOR -->
@@ -203,6 +205,7 @@ if(!isset($_SESSION["user"])){
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
       <br><br>
+	  <!-- /ADD MEMO SECTION -->
 	  
     </div>
 	<!-- RIGHT CONTAINER -->
