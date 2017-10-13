@@ -1,4 +1,24 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+function displayMemos(){
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
 
 <!DOCTYPE html>
 <!-- HEADER -->
@@ -40,10 +60,10 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h3 class="modal-title main-text">Current User: <insert></h3>
+				<h3 class="modal-title main-text">Current User: <?php echo $_SESSION["user"]; ?></h3>
 			</div>
 			<div class="modal-body">
-				<p class="main-text">Info: <insert></p>
+				<p class="main-text">Info: </p>
 			</div>
 			<div class="modal-footer">
 				<form action="login.php" method="post">
@@ -76,23 +96,15 @@
 	  <hr>
 	  <!-- /TOP -->
 	  
-	  <!-- SAMPLE MEMO -->
-	  <h2>I Love Food</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
-      <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
-      <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <!-- /SAMPLE MEMO -->
+	  <!-- SAMPLE MEMO SECTION-->
+	  <div id="memoSection">
+		  <h2 id="title">I Love Food</h2>
+		  <h5 id="date"><span class="glyphicon glyphicon-time"></span> Sep 27, 2015.</h5>
+		  <p id="body">ex ea commodo consequat.</p>
+	  </div>
+	  <!-- /SAMPLE MEMO -->
 	  
       <hr>
-	  
-	  <!-- SAMPLE MEMO -->
-      <h2>Officially Blogging</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
-      <h5><span class="label label-success">Lorem</span></h5><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <!-- /SAMPLE MEMO -->
-	  
-	  <hr>
 
 	  <!-- ADD MEMO SECTION -->
       <h4>Leave a Comment:</h4>

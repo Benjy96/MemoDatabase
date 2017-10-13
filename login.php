@@ -1,18 +1,22 @@
 <?php
 session_start();
 
+//If we have logged out, remove session variables
 if(isset($_POST["logout"])){
 	session_unset();
 }
 
+//If we have already logged in, redirect to the memo databse index page, else prompt log in
 if(isset($_SESSION["user"])){
 	header("Location: memoIndex.php");
 }else{
-	checkSubmitted();
+	login();
 }
 
+// ----- FUNCTIONS ----- //
+
+//Tree-based parse (good for smaller documents)
 function getUsers($fileName){
-	//user file will be smaller than memo file, so use DOMDocument
 	$userList = new DOMDocument();
 	$userList->formatOutput = true;
 	$userList->preserveWhiteSpace = false;
@@ -21,10 +25,9 @@ function getUsers($fileName){
 }
 
 //Check if a form has been submitted
-function checkSubmitted(){
-	//check username and password against the xml user database
-	if(isset($_POST["username"])){
-		
+function login(){
+	//if form has been submitted (in full)
+	if(isset($_POST["username"]) && isset($_POST["password"])){
 		//Store passed in form values and reset the POST array
 		$username = $_POST["username"];
 		$password = $_POST["password"];
@@ -32,10 +35,11 @@ function checkSubmitted(){
 		//Load in the list of users from an XML file
 		$userList = getUsers("userList.xml");
 		
-		//loop through DOMDocument
+		//Get root and users element for iterating through users
 		$root = $userList->documentElement;
 		$users = $root->childNodes->item(0);
 		
+		//loop through DOMDocument
 		foreach ($users->childNodes as $iterator){	//go through each user
 			if($username == $iterator->childNodes->item(0)->nodeValue){	//if username matches, check <user> password
 				if($password == $iterator->childNodes->item(1)->nodeValue){	//if password matches
