@@ -47,7 +47,7 @@
 			</div>
 			<div class="modal-footer">
 				<form action="login.php" method="post">
-					<button type="submit"  name="logout" class="btn btn-default">Log out</button>
+					<button type="submit"  name="logout" class="btn btn-primary">Log out</button>
 				</form>
 			</div>
 		</div>
@@ -69,22 +69,32 @@
       </div>
     </div>
 
+	<!-- RIGHT CONTAINER -->
     <div class="col-sm-9">
+	  <!-- TOP -->
 	  <h4><small>RECENT MEMOS</small></h4>
 	  <hr>
+	  <!-- /TOP -->
+	  
+	  <!-- SAMPLE MEMO -->
 	  <h2>I Love Food</h2>
       <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
       <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
       <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <br><br>
-      
+      <!-- /SAMPLE MEMO -->
+	  
       <hr>
+	  
+	  <!-- SAMPLE MEMO -->
       <h2>Officially Blogging</h2>
       <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
       <h5><span class="label label-success">Lorem</span></h5><br>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <hr>
+      <!-- /SAMPLE MEMO -->
+	  
+	  <hr>
 
+	  <!-- ADD MEMO SECTION -->
       <h4>Leave a Comment:</h4>
       <form role="form">
         <div class="form-group">
@@ -125,7 +135,9 @@
           </div>
         </div>
       </div>
+	  
     </div>
+	<!-- RIGHT CONTAINER -->
   </div>
 </div>
 
