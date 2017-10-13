@@ -13,11 +13,11 @@
 	Assisted by: https://material.io/color
 */
 
-.error{
+.notice {
 	color: red;
 }
 
-.bg-info{
+.bg-info {
 	background-color: #52c7b8;
 }
 

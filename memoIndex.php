@@ -198,7 +198,7 @@ if(!isset($_SESSION["user"])){
 
 	  <!-- ADD MEMO SECTION -->
       <h4>Create a Memo:</h4>
-      <form role="form" action="addMemo.php">
+      <form role="form" action="addMemo.php" method="post">
         <div class="form-group">
           <input required name="memoTitle" type="text" class="form-control" placeholder="* Title..."/> 
 		</div>
@@ -215,7 +215,7 @@ if(!isset($_SESSION["user"])){
 			</div>
 		</div>
 		<br>
-		<span class="error">* fields are required</span>
+		<span class="notice">* fields are required</span>
 		<br><br>
 		<button type="submit" class="btn btn-primary">Submit</button>
       </form>

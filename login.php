@@ -82,6 +82,7 @@ function displayLogin(){
   <body class="main-background"> 
   
     <div><!-- LOGIN FORM -->
+	  <!-- POST to a hard-coded, new file to avoid any security risks with $_SERVER["PHP_SELF"] -->
       <form class="login-form" action="login.php" method="post">
         <h1 class="bottom-padding">Please sign in</h2>
 		<div class="form-group">
