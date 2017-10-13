@@ -42,6 +42,8 @@ if(!isset($_SESSION["user"])){
 	var current = 0;
 	
 	function showMemo(){
+		updateMemoDisplayedIndicator();
+		
 		//Dynamically set next/previous to active or disabled
 		if(current != 0){
 			document.getElementById("prevMemoButton").disabled = false;
@@ -82,12 +84,25 @@ if(!isset($_SESSION["user"])){
 		}
 	}
 	
+	//Change the HTML at top of page
+	function updateMemoDisplayedIndicator(){
+		var element = document.getElementById("whichMemo");
+		var index = memos.length - current;
+		
+		if(current == 0){
+			element.innerHTML = "LATEST MEMO (#" + index +")";
+		}else{	
+			
+			element.innerHTML = "MEMO #" + index;
+		}
+	}
+	
 	/*
 	
 	TO DO: 
 	
-	- Complete the memo "template" in HTMLK:
-		- Add Next/previous buttons to memo
+	- Complete the memo "template" in HTML:
+	- Modify "Latest Memo" at top of page to display something useful
 	
 	*/
 	</script>

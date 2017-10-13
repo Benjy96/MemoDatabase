@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <all_memos>
 	<user id="100">
-		<memo id = "001">
-			<title>First memo</title>
+		<memo id = "003">
+			<title>Hello there</title>
 			<sender>admin</sender>
-			<recipient>Random McRandomFace</recipient>
+			<recipient>me</recipient>
 			<date>13/10/2017</date>
-			<body>This is really just a test, not exactly a memo.</body>
+			<body>This app is pretty crap. Heh, that rhymed.</body>
 			<url>www.google.com</url>
 		</memo>
 		
@@ -18,7 +18,15 @@
 			<body>Getting slightly suicidal - it's a side effect of HTMLitis</body>
 			<url>www.google.com</url>
 		</memo>
-	
+		
+		<memo id = "001">
+			<title>First memo</title>
+			<sender>admin</sender>
+			<recipient>Random McRandomFace</recipient>
+			<date>13/10/2017</date>
+			<body>This is really just a test, not exactly a memo.</body>
+			<url>www.google.com</url>
+		</memo>
 		<!-- ANOTHER MEMO -->
     </user>
 	
