@@ -21,9 +21,6 @@
   
   </head>
   <!-- /HEADER -->
-  
-  
-  
 <body>
 
 <div class="container-fluid">
@@ -49,7 +46,9 @@
 				<p class="main-text">Info: <insert></p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<form action="login.php" method="post">
+					<button type="submit"  name="logout" class="btn btn-default">Log out</button>
+				</form>
 			</div>
 		</div>
 		<!-- /MODAL CONTENT -->
@@ -57,9 +56,7 @@
 		</div>
 	</div>
 	<!-- /MODAL -->
-	
-	
-	<!-- / -->
+	<!-- /CURRENT USER -->
 	
       <h2>Memo Database</h2>
       <div class="input-group">

@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(isset($_POST["logout"]){
+	session_unset();
+}
+
 if(isset($_SESSION["user"])){
 	header("Location: memoIndex.php");
 }else{
