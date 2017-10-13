@@ -52,7 +52,6 @@
 	
 	TO DO: 
 	
-	- Show latest memo
 	- Allow user to cycle through previous memos
 	
 	*/
