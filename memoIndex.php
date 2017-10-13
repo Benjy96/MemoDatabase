@@ -64,6 +64,14 @@ if(!isset($_SESSION["user"])){
 	*/
 	</script>
 	<!-- /Custom JavaScript -->
+	
+	<script>
+	$(document).ready(function(){
+		$("#accButton").click(function(){
+			$("#accModal").modal();
+		});
+	});
+	</script>
   
   </head>
   <!-- /HEADER -->
@@ -74,7 +82,7 @@ if(!isset($_SESSION["user"])){
     <div class="col-sm-3 sidenav">
 	
 	<!-- CURRENT USER -->	
-	<button type="button" class="btn btn-default circle" data-toggle="modal" data-target="#accModal">
+	<button class="btn btn-default circle" id="accButton">
 	<span class="glyphicon glyphicon-user"></span>
 	</button>
 	
