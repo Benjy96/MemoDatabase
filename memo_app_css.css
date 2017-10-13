@@ -13,6 +13,10 @@
 	Assisted by: https://material.io/color
 */
 
+.error{
+	color: red;
+}
+
 .bg-info{
 	background-color: #52c7b8;
 }
@@ -92,7 +96,7 @@
 .btn.btn-info:hover{
 	background-color: #52c7b8;
 	border-color: #52c7b8;
-	color: red;
+	color: white;
 }
 
 /* /Buttons */
