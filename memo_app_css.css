@@ -12,6 +12,9 @@
 		
 	Assisted by: https://material.io/color
 */
+.inline {
+	display: inline;
+}	
 
 .main-background { background-color: #eee; }
 

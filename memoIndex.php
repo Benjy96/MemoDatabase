@@ -65,9 +65,9 @@ if(!isset($_SESSION["user"])){
 		var date = memos[current].getElementsByTagName("date")[0].childNodes[0].nodeValue;
 		var body = memos[current].getElementsByTagName("body")[0].childNodes[0].nodeValue;
 		
-		document.getElementById("title").innerHTML = title;
-		document.getElementById("date").innerHTML = date;
-		document.getElementById("body").innerHTML = body;
+		document.getElementById("title").innerHTML = " " + title;
+		document.getElementById("date").innerHTML = " " + date;
+		document.getElementById("body").innerHTML = " " + body;
 	}
 	
 	function nextMemo(){
@@ -90,9 +90,8 @@ if(!isset($_SESSION["user"])){
 		var index = memos.length - current;
 		
 		if(current == 0){
-			element.innerHTML = "LATEST MEMO (#" + index +")";
+			element.innerHTML = "LATEST MEMO (#" + index + ")";
 		}else{	
-			
 			element.innerHTML = "MEMO #" + index;
 		}
 	}
@@ -102,7 +101,6 @@ if(!isset($_SESSION["user"])){
 	TO DO: 
 	
 	- Complete the memo "template" in HTML:
-	- Modify "Latest Memo" at top of page to display something useful
 	
 	*/
 	</script>
@@ -178,7 +176,8 @@ if(!isset($_SESSION["user"])){
 	  <!-- MEMO SECTION-->
 	  <div id="memo" class="well well-lg">
 		  <h2 id="title">Title</h2>
-		  <h5 id="date"><span class="glyphicon glyphicon-time"></span> Date</h5>
+		  <span class="glyphicon glyphicon-user"></span><h4 id="sender" class="inline"> By admin</h4>
+		  <span class="glyphicon glyphicon-time"></span><h5 id="date" class="inline"> Date</h5>
 		  <p id="body">Body</p>
 	  </div>
 	  
