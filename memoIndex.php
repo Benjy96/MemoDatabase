@@ -17,9 +17,8 @@ if(!isset($_SESSION["user"])){
 
     <!-- Bootstrap CSS & JavaScript-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="memo_app_css.css">
@@ -65,6 +64,7 @@ if(!isset($_SESSION["user"])){
 	</script>
 	<!-- /Custom JavaScript -->
 	
+	<!-- JQuery -->
 	<script>
 	$(document).ready(function(){
 		$("#accButton").click(function(){
@@ -72,6 +72,7 @@ if(!isset($_SESSION["user"])){
 		});
 	});
 	</script>
+	<!-- /JQuery -->
   
   </head>
   <!-- /HEADER -->
@@ -87,7 +88,7 @@ if(!isset($_SESSION["user"])){
 	</button>
 	
 	<!-- MODAL -->
-	<div id="accModal" class="modal" role="dialog">
+	<div class="modal fade" id="accModal" role="dialog">
       <div class="modal-dialog">
         
 		<!-- MODAL CONTENT -->
