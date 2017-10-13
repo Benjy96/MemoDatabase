@@ -29,6 +29,38 @@
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
+	
+	<!-- CURRENT USER -->	
+	<button type="button" class="btn btn-default circle" data-toggle="modal" data-target="#accModal">
+	<span class="glyphicon glyphicon-user"></span>
+	</button>
+	
+	<!-- MODAL -->
+	<div id="accModal" class="modal hide" role="dialog">
+      <div class="modal-dialog">
+        
+		<!-- MODAL CONTENT -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h3 class="modal-title main-text">Current User: <insert></h3>
+			</div>
+			<div class="modal-body">
+				<p class="main-text">Info: <insert></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- /MODAL CONTENT -->
+		
+		</div>
+	</div>
+	<!-- /MODAL -->
+	
+	
+	<!-- / -->
+	
       <h2>Memo Database</h2>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search Memos...">
@@ -41,15 +73,14 @@
     </div>
 
     <div class="col-sm-9">
-      <h4><small>RECENT MEMOS</small></h4>
-      <hr>
-      <h2>I Love Food</h2>
+	  <h4><small>RECENT MEMOS</small></h4>
+	  <hr>
+	  <h2>I Love Food</h2>
       <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
       <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
       <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <br><br>
       
-      <h4><small>RECENT POSTS</small></h4>
       <hr>
       <h2>Officially Blogging</h2>
       <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>

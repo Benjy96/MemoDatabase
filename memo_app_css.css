@@ -17,6 +17,10 @@
 
 .bottom-padding { margin-bottom: 15px; }
 
+.top-padding { margin-top: 5px; }
+
+.main-text { color: black; }
+
 .login-form { 
 	padding: 30px; 
 	max-width: 450px;
@@ -55,3 +59,9 @@
 }
 
 .row.content { height: 1500px }
+
+.circle {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px; 
+}
