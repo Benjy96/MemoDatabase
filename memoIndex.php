@@ -1,24 +1,4 @@
-<?php session_start(); 
-
-function displayMemos(){
-	
-	
-	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <!-- HEADER -->
@@ -38,10 +18,50 @@ function displayMemos(){
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="memo_app_css.css">
 	<!-- /Custom CSS -->
+	
+	<!-- Custom JavaScript -->
+	<script type="text/javascript">
+	alert("hi");
+	var memos;
+	
+	if (window.XMLHttpRequest) { // IE7+, Firefox, Chrome, Opera, Safari
+		var xmlhttp=new XMLHttpRequest();
+	} else { // IE6, IE5
+		var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.open("GET","memos.xml",false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML;
+	
+	//get all memos
+	memos=xmlDoc.getElementsByTagName("memo"); 
+	var current = 0;
+	
+	function showMemo(){
+		var title = memos[current].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+		var date = memos[current].getElementsByTagName("date")[0].childNodes[0].nodeValue;
+		var body = memos[current].getElementsByTagName("body")[0].childNodes[0].nodeValue;
+		
+		document.getElementById("title").innerHTML = title;
+		document.getElementById("date").innerHTML = date;
+		document.getElementById("body").innerHTML = body;
+	}
+	
+	
+	/*
+	
+	TO DO: 
+	
+	- Show latest memo
+	- Allow user to cycle through previous memos
+	
+	*/
+	</script>
+	<!-- /Custom JavaScript -->
   
   </head>
   <!-- /HEADER -->
-<body>
+<body onload="showMemo()">	<!-- Display memos on load -->
 
 <div class="container-fluid">
   <div class="row content">
@@ -97,14 +117,14 @@ function displayMemos(){
 	  <!-- /TOP -->
 	  
 	  <!-- SAMPLE MEMO SECTION-->
-	  <div id="memoSection">
-		  <h2 id="title">I Love Food</h2>
-		  <h5 id="date"><span class="glyphicon glyphicon-time"></span> Sep 27, 2015.</h5>
-		  <p id="body">ex ea commodo consequat.</p>
+	  <div id="memo">
+		  <h2 id="title">Title</h2>
+		  <h5 id="date"><span class="glyphicon glyphicon-time"></span> Date</h5>
+		  <p id="body">Body</p>
 	  </div>
-	  <!-- /SAMPLE MEMO -->
+	  <!-- /SAMPLE MEMO SECTION -->
 	  
-      <hr>
+      <hr>	<!-- SECTION SEPARATOR -->
 
 	  <!-- ADD MEMO SECTION -->
       <h4>Leave a Comment:</h4>
