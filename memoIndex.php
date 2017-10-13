@@ -138,7 +138,7 @@ if(!isset($_SESSION["user"])){
 		  <p id="body">Body</p>
 	  </div>
 	  
-	  <button type="button" class="btn btn-primary disabled">Previous Memo</button>
+	  <button type="button" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
 	  <button type="button" class="btn btn-primary">Next Memo</button>
 	  
 	  <!-- /MEMO SECTION -->
