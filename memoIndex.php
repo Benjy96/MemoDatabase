@@ -42,6 +42,23 @@ if(!isset($_SESSION["user"])){
 	var current = 0;
 	
 	function showMemo(){
+		//Dynamically set next/previous to active or disabled
+		if(current != 0){
+			document.getElementById("prevMemoButton").disabled = false;
+			document.getElementById("prevMemoButton").className = "btn btn-primary";
+		}else{
+			document.getElementById("prevMemoButton").disabled = true;
+			document.getElementById("prevMemoButton").className = "btn btn-primary disabled";
+		}
+		
+		if(current == memos.length - 1){
+			document.getElementById("nextMemoButton").disabled = true;
+			document.getElementById("nextMemoButton").className = "btn btn-primary disabled";
+		}else{
+			document.getElementById("nextMemoButton").disabled = false;
+			document.getElementById("nextMemoButton").className = "btn btn-primary";
+		}
+		
 		var title = memos[current].getElementsByTagName("title")[0].childNodes[0].nodeValue;
 		var date = memos[current].getElementsByTagName("date")[0].childNodes[0].nodeValue;
 		var body = memos[current].getElementsByTagName("body")[0].childNodes[0].nodeValue;
@@ -140,7 +157,7 @@ if(!isset($_SESSION["user"])){
 	<!-- RIGHT CONTAINER -->
     <div class="col-sm-9">
 	  <!-- TOP -->
-	  <h4><small>RECENT MEMOS</small></h4>
+	  <h4><small id="whichMemo">LATEST MEMO</small></h4>
 	  <hr>
 	  <!-- /TOP -->
 	  
@@ -151,8 +168,8 @@ if(!isset($_SESSION["user"])){
 		  <p id="body">Body</p>
 	  </div>
 	  
-	  <button type="button" onclick="previousMemo()" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
-	  <button type="button" onclick="nextMemo()" class="btn btn-primary">Next Memo</button>
+	  <button type="button" id="prevMemoButton" onclick="previousMemo()" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
+	  <button type="button" id="nextMemoButton" onclick="nextMemo()" class="btn btn-primary">Next Memo</button>
 	  
 	  <!-- /MEMO SECTION -->
 	  
