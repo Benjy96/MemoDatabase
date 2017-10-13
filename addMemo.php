@@ -15,44 +15,38 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	$xml->preserveWhiteSpace = false;
 	$xml->loadXML($data) or die("Can't load memo XML file: addMemo.php");
 	
-	$rootElement = $xml->documentElement;
+	$rootElement = $xml->documentElement;	//all_memos
+	$userElement;
+	
 	//get user element
-	//get latest memo number
-	//append new memo
+	foreach($rootElement->childNodes AS $user){
+		if($user == $_SESSION["user"]){
+			$userElement = $user; 
+			break;
+		}
+	}
 	
-	//Data to add to memo:
-	
-	/*
-	Implicit:
-	
-		Sender - user
-		ID - incremented from previous memo
-		Date - get timestamp
-	
-	*/
-	
-	/*
-	Explicit: (via POST)
-	
-	Body
-	Title
-	Recipient
-	URL
-	
-	*/
-}
-
-function getExplicitData(){
-	
-}
-
-function getImplicitData(){
+	//get implicit data
 	$date = date(d-m-Y);
 	$sender = $_SESSION["user"];
-	$id = 
+	$latestID = $userElement->childNodes->item(0)->getAttribute("id");
+	$newID = latestID + 1;
+	
+	//get explicit data (passed via POST) - validated client-side on memoIndex.php
+	$title = $_POST["memoTitle"];
+	$body = $_POST["memoBody"];
+	$recipient = $_POST["memoRecipient"];
+	
+	//validate the URL field - if invalid, return to the form
+	if(!empty($_POST["memoURL"])){
+		$URL = $_POST["memoURL"];
+		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+			$_SESSION["title"] = $title;
+			$_SESSION["body"] = $body;
+			$_SESSION["recipient"] = $recipient;
+			
+			header("Location: memoIndex.php"); 
+		}
+	}
 }
-
-
-
-
 ?>
