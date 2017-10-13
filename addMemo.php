@@ -20,14 +20,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	/*
 	Implicit:
 	
-		Sender
-		ID
-		Date
+		Sender - user
+		ID - incremented from previous memo
+		Date - get timestamp
 	
 	*/
 	
 	/*
-	Explicit:
+	Explicit: (via POST)
 	
 	Body
 	Title
