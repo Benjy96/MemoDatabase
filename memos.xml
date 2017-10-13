@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <all_memos>
-	<user id="100">
+	<user name="admin">
 		<memo id = "003">
 			<title>Hello there</title>
-			<sender>admin</sender>
 			<recipient>me</recipient>
 			<date>13/10/2017</date>
 			<body>This app is pretty crap. Heh, that rhymed.</body>
@@ -12,7 +11,6 @@
 		
 		<memo id = "002">
 			<title>Second memo</title>
-			<sender>admin</sender>
 			<recipient>Ben</recipient>
 			<date>13/10/2017</date>
 			<body>Getting slightly suicidal - it's a side effect of HTMLitis</body>
@@ -21,7 +19,6 @@
 		
 		<memo id = "001">
 			<title>First memo</title>
-			<sender>admin</sender>
 			<recipient>Random McRandomFace</recipient>
 			<date>13/10/2017</date>
 			<body>This is really just a test, not exactly a memo.</body>

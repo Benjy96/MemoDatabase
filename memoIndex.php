@@ -61,11 +61,18 @@ if(!isset($_SESSION["user"])){
 			document.getElementById("nextMemoButton").className = "btn btn-primary";
 		}
 		
+		//Get all memo information
+		var sender = memos[current].parentNode.getAttribute("name");
+		
+		var memoId = memos[current].getAttribute("id");
+		
 		var title = memos[current].getElementsByTagName("title")[0].childNodes[0].nodeValue;
 		var date = memos[current].getElementsByTagName("date")[0].childNodes[0].nodeValue;
 		var body = memos[current].getElementsByTagName("body")[0].childNodes[0].nodeValue;
 		
+		document.getElementById("memoID").innerHTML = " " + memoId;
 		document.getElementById("title").innerHTML = " " + title;
+		document.getElementById("sender").innerHTML = " " + sender;
 		document.getElementById("date").innerHTML = " " + date;
 		document.getElementById("body").innerHTML = " " + body;
 	}
@@ -176,9 +183,10 @@ if(!isset($_SESSION["user"])){
 	  <!-- MEMO SECTION-->
 	  <div id="memo" class="well well-lg">
 		  <h2 id="title">Title</h2>
-		  <span class="glyphicon glyphicon-user"></span><h4 id="sender" class="inline"> By admin</h4>
-		  <span class="glyphicon glyphicon-time"></span><h5 id="date" class="inline"> Date</h5>
+		  <span class="glyphicon glyphicon-user"></span><h4 id="sender" class="inline"> By admin</h4></br>
+		  <span class="glyphicon glyphicon-time"></span><h5 id="date" class="inline"> Date</h5></br>
 		  <p id="body">Body</p>
+		  <span class="glyphicon glyphicon-barcode"></span><p id="memoID" class="inline"> memoid: #342423432</p>
 	  </div>
 	  
 	  <button type="button" id="prevMemoButton" onclick="previousMemo()" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
