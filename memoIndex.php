@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+if(!isset($_SESSION["user"])){
+	header("Location: login.php");
+}
+
+?>
 
 <!DOCTYPE html>
 <!-- HEADER -->
@@ -21,7 +27,6 @@
 	
 	<!-- Custom JavaScript -->
 	<script type="text/javascript">
-	alert("hi");
 	var memos;
 	
 	if (window.XMLHttpRequest) { // IE7+, Firefox, Chrome, Opera, Safari
