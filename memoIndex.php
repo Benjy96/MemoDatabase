@@ -41,25 +41,23 @@ if(!isset($_SESSION["user"])){
 	memos=xmlDoc.getElementsByTagName("memo"); 
 	var current = 0;
 	
+	function nextMemo(){
+		if(current < memos.length) {
+			current++;
+			showMemo();
+		}
+	}
+	
+	function previousMemo(){
+		if(current > 0){
+			current--;
+			showMemo();
+		}
+	}
+	
 	function showMemo(){
 		updateMemoDisplayedIndicator();
-		
-		//Dynamically set next/previous to active or disabled
-		if(current != 0){
-			document.getElementById("prevMemoButton").disabled = false;
-			document.getElementById("prevMemoButton").className = "btn btn-primary";
-		}else{
-			document.getElementById("prevMemoButton").disabled = true;
-			document.getElementById("prevMemoButton").className = "btn btn-primary disabled";
-		}
-		
-		if(current == memos.length - 1){
-			document.getElementById("nextMemoButton").disabled = true;
-			document.getElementById("nextMemoButton").className = "btn btn-primary disabled";
-		}else{
-			document.getElementById("nextMemoButton").disabled = false;
-			document.getElementById("nextMemoButton").className = "btn btn-primary";
-		}
+		setButtons();
 		
 		//Get all memo information
 		var sender = memos[current].parentNode.getAttribute("name");
@@ -77,20 +75,6 @@ if(!isset($_SESSION["user"])){
 		document.getElementById("body").innerHTML = " " + body;
 	}
 	
-	function nextMemo(){
-		if(current < memos.length) {
-			current++;
-			showMemo();
-		}
-	}
-	
-	function previousMemo(){
-		if(current > 0){
-			current--;
-			showMemo();
-		}
-	}
-	
 	//Change the HTML at top of page
 	function updateMemoDisplayedIndicator(){
 		var element = document.getElementById("whichMemo");
@@ -103,13 +87,25 @@ if(!isset($_SESSION["user"])){
 		}
 	}
 	
-	/*
+	function setButtons(){
+		//Dynamically set next/previous to active or disabled
+		if(current != 0){
+			document.getElementById("prevMemoButton").disabled = false;
+			document.getElementById("prevMemoButton").className = "btn btn-primary";
+		}else{
+			document.getElementById("prevMemoButton").disabled = true;
+			document.getElementById("prevMemoButton").className = "btn btn-primary disabled";
+		}
+		
+		if(current == memos.length - 1){
+			document.getElementById("nextMemoButton").disabled = true;
+			document.getElementById("nextMemoButton").className = "btn btn-primary disabled";
+		}else{
+			document.getElementById("nextMemoButton").disabled = false;
+			document.getElementById("nextMemoButton").className = "btn btn-primary";
+		}
+	}
 	
-	TO DO: 
-	
-	- Complete the memo "template" in HTML:
-	
-	*/
 	</script>
 	<!-- /Custom JavaScript -->
 	
@@ -183,10 +179,12 @@ if(!isset($_SESSION["user"])){
 	  <!-- MEMO SECTION-->
 	  <div id="memo" class="well well-lg">
 		  <h2 id="title">Title</h2>
-		  <span class="glyphicon glyphicon-user"></span><h4 id="sender" class="inline"> By admin</h4></br>
-		  <span class="glyphicon glyphicon-time"></span><h5 id="date" class="inline"> Date</h5></br>
-		  <p id="body">Body</p>
-		  <span class="glyphicon glyphicon-barcode"></span><p id="memoID" class="inline"> memoid: #342423432</p>
+		  <blockquote>
+			<p id="body">Body</p>
+			<footer id="sender"> name</footer>
+		  </blockquote>
+		  <span class="glyphicon glyphicon-time"></span> <p class="inline bg-info">DATE:</p><p id="date" class="inline"> 666/666/666</p></br>
+		  <span class="glyphicon glyphicon-barcode"></span> <p class="inline bg-info">MEMO ID:</p><p id="memoID" class="inline"> memoid: #342423432</p>
 	  </div>
 	  
 	  <button type="button" id="prevMemoButton" onclick="previousMemo()" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
