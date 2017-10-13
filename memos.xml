@@ -10,6 +10,15 @@
 			<url>www.google.com</url>
 		</memo>
 		
+		<memo id = "002">
+			<title>Second memo</title>
+			<sender>admin</sender>
+			<recipient>Ben</recipient>
+			<date>13/10/2017</date>
+			<body>Getting slightly suicidal - it's a side effect of HTMLitis</body>
+			<url>www.google.com</url>
+		</memo>
+	
 		<!-- ANOTHER MEMO -->
     </user>
 	

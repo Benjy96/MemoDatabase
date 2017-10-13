@@ -51,6 +51,19 @@ if(!isset($_SESSION["user"])){
 		document.getElementById("body").innerHTML = body;
 	}
 	
+	function nextMemo(){
+		if(current < memos.length) {
+			current++;
+			showMemo();
+		}
+	}
+	
+	function previousMemo(){
+		if(current > 0){
+			current--;
+			showMemo();
+		}
+	}
 	
 	/*
 	
@@ -138,8 +151,8 @@ if(!isset($_SESSION["user"])){
 		  <p id="body">Body</p>
 	  </div>
 	  
-	  <button type="button" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
-	  <button type="button" class="btn btn-primary">Next Memo</button>
+	  <button type="button" onclick="previousMemo()" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
+	  <button type="button" onclick="nextMemo()" class="btn btn-primary">Next Memo</button>
 	  
 	  <!-- /MEMO SECTION -->
 	  
