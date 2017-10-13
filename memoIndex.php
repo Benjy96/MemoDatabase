@@ -197,14 +197,27 @@ if(!isset($_SESSION["user"])){
       <hr>	<!-- SECTION SEPARATOR -->
 
 	  <!-- ADD MEMO SECTION -->
-      <h4>Leave a Comment:</h4>
+      <h4>Create a Memo:</h4>
       <form role="form">
         <div class="form-group">
-          <textarea class="form-control" rows="3" required></textarea>
+          <input required name="memoTitle" type="text" class="form-control" placeholder="Enter title..."/> 
+		</div>
+		<div class="form-group">
+          <textarea required name="memoBody" class="form-control" rows="3" placeholder="Your memo..."></textarea>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+		<div class="form-group">
+          <input required name="memoRecipient" type="text" class="form-control" placeholder="Recipient(s)..."/> 
+		</div>
+		<div class="form-group">
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#memoURL">Optional URL</button>
+			<div id="memoURL" class="collapse">
+				  <input required name="memoURL" type="text" class="form-control" placeholder="URL..."/> 
+			</div>
+		</div>
+		<br><br>
+		<button type="submit" class="btn btn-primary">Submit</button>
       </form>
-      <br><br>
+      
 	  <!-- /ADD MEMO SECTION -->
 	  
     </div>
