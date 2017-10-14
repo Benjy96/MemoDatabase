@@ -11,7 +11,7 @@
 			<recipient>Me</recipient>
 			<date>14/10/2017</date>
 			<body>Made a memo with ID 10 just to see how the search function works when it has more than one result.</body>
-			<url></url>
+			<url> </url>
 		</memo>
 		<memo id="3">
 			<title>Hello there</title>

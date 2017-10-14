@@ -120,12 +120,17 @@ function displayAddMemoSectionInvalid(){ ?>
 		var title = memos[current].getElementsByTagName("title")[0].childNodes[0].nodeValue;
 		var date = memos[current].getElementsByTagName("date")[0].childNodes[0].nodeValue;
 		var body = memos[current].getElementsByTagName("body")[0].childNodes[0].nodeValue;
+		var url = memos[current].getElementsByTagName("url")[0].childNodes[0].nodeValue;
 		
 		document.getElementById("memoID").innerHTML = " " + memoId;
 		document.getElementById("title").innerHTML = " " + title;
 		document.getElementById("sender").innerHTML = " " + sender;
 		document.getElementById("date").innerHTML = " " + date;
 		document.getElementById("body").innerHTML = " " + body;
+		if(url != ""){
+			document.getElementById("url").innerHTML = " " + url;
+			document.getElementById("url").href = url;
+		}
 	}
 	
 	//Show which memo we are on (counter)
@@ -274,7 +279,8 @@ function displayAddMemoSectionInvalid(){ ?>
 			<footer id="sender"> name</footer>
 		  </blockquote>
 		  <span class="glyphicon glyphicon-time"></span> <p class="inline bg-info">DATE:</p><p id="date" class="inline"> 666/666/666</p></br>
-		  <span class="glyphicon glyphicon-barcode"></span> <p class="inline bg-info">MEMO ID:</p><p id="memoID" class="inline"> memoid: #342423432</p>
+		  <span class="glyphicon glyphicon-barcode"></span> <p class="inline bg-info">MEMO ID:</p><p id="memoID" class="inline"> memoid: #342423432</p></br>
+		  <span class="glyphicon glyphicon-link"></span> <p class="inline bg-info">URL:</p><a id="url" class="inline"> memoid: #342423432</a>
 	  </div>
 	  
 	  <button type="button" id="prevMemoButton" onclick="previousMemo()" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>

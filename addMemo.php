@@ -65,6 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	$body = $_POST["memoBody"];
 	$recipient = $_POST["memoRecipient"];
 
+	unset($_SESSION["invalidURL"]);
 	//validate the optional URL field - if invalid, return to the form
 	if(!empty($_POST["memoURL"])){
 		$URL = $_POST["memoURL"];
@@ -78,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 			header("Location: memoIndex.php"); 
 		}
 	}else{
-		$URL = "";
+		$URL = " ";
 	}
 	
 	//we now have validated explicit and implicit data, let's create the memo and add it to the XML file
