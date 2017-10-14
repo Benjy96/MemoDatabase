@@ -11,7 +11,10 @@ TO DO:
 
 session_start();
 
-//Client-side validation happened on memoIndex, don't need to check if the post variables exist
+/*
+Client-side validation happened on memoIndex; we don't need to check if the post variables exist
+In addition, we are not using $_SERVER["PHP_SELF"], so we don't need htmlspecialchars validation 
+*/
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	//Open a DOMDocument - tree-based parsing
 	$xml = new DOMDocument();
@@ -65,5 +68,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 			header("Location: memoIndex.php"); 
 		}
 	}
+	
+	//we now have validated explicit and implicit data, let's create the memo and add it to the XML file
+	//Create memo title node
+	$newTitle=$xml->createElement("title");
+	$newTitleText=$xml->createTextNode($title);
+	$newTitle->appendChild($newTitleText);
+	
+	//Create recipient node
+	
+	//Create date node
+	
+	//Create body node
+	
+	//Create URL node
+	
+	//Create the collated memo
+	
+	
+	
+	
+	
 }
 ?>

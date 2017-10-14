@@ -28,7 +28,7 @@ function displayAddMemoSection(){ ?>
 		<br><br>
 		<button type="submit" class="btn btn-primary">Submit</button>
       </form>
-<?php 	
+<?php 
 }
 
 function displayAddMemoSectionInvalid(){ ?>
@@ -54,9 +54,8 @@ function displayAddMemoSectionInvalid(){ ?>
 		<br><br>
 		<button type="submit" class="btn btn-primary">Submit</button>
       </form>
-<?php	
+<?php 
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -108,6 +107,7 @@ function displayAddMemoSectionInvalid(){ ?>
 		}
 	}
 	
+	//Display a stored memo
 	function showMemo(){
 		updateMemoDisplayedIndicator();
 		setButtons();
@@ -128,7 +128,7 @@ function displayAddMemoSectionInvalid(){ ?>
 		document.getElementById("body").innerHTML = " " + body;
 	}
 	
-	//Change the HTML at top of page
+	//Show which memo we are on (counter)
 	function updateMemoDisplayedIndicator(){
 		var element = document.getElementById("whichMemo");
 		var index = memos.length - current;
@@ -140,8 +140,8 @@ function displayAddMemoSectionInvalid(){ ?>
 		}
 	}
 	
+	//Dynamically set next/previous to active or disabled
 	function setButtons(){
-		//Dynamically set next/previous to active or disabled
 		if(current != 0){
 			document.getElementById("prevMemoButton").disabled = false;
 			document.getElementById("prevMemoButton").className = "btn btn-primary";
