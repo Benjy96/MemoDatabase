@@ -159,14 +159,7 @@ function displayAddMemoSectionInvalid(){ ?>
 		}
 	}
 	
-	/*
-	PROBLEM:
-	
-	Need to pass data to this method so we can identify & convert to an index to use other 
-	display methods
-	
-	*/
-	
+	//Identify a memo by its unique ID, and convert to an index (current)
 	function getCurrentById(passedMemoID){
 		temp = current;
 		current = 0;
@@ -180,7 +173,6 @@ function displayAddMemoSectionInvalid(){ ?>
 			}
 		}
 		if(found == false) current = temp;
-		alert(current);
 		showMemo();
 	}
 	
