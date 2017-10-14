@@ -3,11 +3,11 @@
 	<last_updated>admin</last_updated>
 	<user name="admin">
 		<memo id="10">
-			<title>First memo</title>
-			<recipient>Random McRandomFace</recipient>
-			<date>13/10/2017</date>
-			<body>This is really just a test, not exactly a memo.</body>
-			<url>www.google.com</url>
+			<title>Testing out multiple searches</title>
+			<recipient>Me</recipient>
+			<date>14/10/2017</date>
+			<body>Made a memo with ID 10 just to see how the search function works when it has more than one result.</body>
+			<url></url>
 		</memo>
 		<memo id="3">
 			<title>Hello there</title>

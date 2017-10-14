@@ -131,9 +131,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	$newLastUpdatedNode->appendChild($newLastUpdatedText);
 	$rootElement->replaceChild($newLastUpdatedNode, $lastUpdatedNode);
 	
-	//Debug
-	echo "<xmp>NEW:\n". $xml->saveXML() ."</xmp>";
-	
 	//Dump new xml back into the file
 	$xml->save("memos.xml");
 	header("Location: memoIndex.php");

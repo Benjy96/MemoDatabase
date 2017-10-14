@@ -108,7 +108,7 @@ function displayAddMemoSectionInvalid(){ ?>
 	}
 	
 	//Display a stored memo
-	function showMemo(current){
+	function showMemo(){
 		updateMemoDisplayedIndicator();
 		setButtons();
 		
@@ -159,6 +159,31 @@ function displayAddMemoSectionInvalid(){ ?>
 		}
 	}
 	
+	/*
+	PROBLEM:
+	
+	Need to pass data to this method so we can identify & convert to an index to use other 
+	display methods
+	
+	*/
+	
+	function getCurrentById(passedMemoID){
+		temp = current;
+		current = 0;
+		found = false;
+		for(i = 0; i < memos.length; i++){
+			if(i > 0) current++;
+			currentID = memos[i].getAttribute("id");
+			if(currentID == passedMemoID){
+				found = true;
+				break;
+			}
+		}
+		if(found == false) current = temp;
+		alert(current);
+		showMemo();
+	}
+	
 	function showResult(string){
 		//Hide the dropdown result box
 		if(string.length == 0){
@@ -194,7 +219,7 @@ function displayAddMemoSectionInvalid(){ ?>
   
   </head>
   <!-- /HEADER -->
-<body onload="showMemo(0)">	<!-- Display memos on load -->
+<body onload="showMemo()">	<!-- Display memos on load -->
 
 <div class="container-fluid">
   <div class="row content">

@@ -17,9 +17,9 @@ if(strlen($query) > 0){
 		$currentMemo = $memos->item($i)->getAttribute("id");
 		if(stristr($currentMemo, $query)){
 			if($hint==""){
-				$hint = $currentMemo;
+				$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>" . $currentMemo . "</div>";
 			}else{
-				$hint = $currentMemo . "<br/>" . $hint;
+				$hint = $hint . "<div class='panel-body' onclick='getCurrentById($currentMemo)'>" . $currentMemo . "</div>";
 			}
 		}
 	}
