@@ -4,32 +4,29 @@ session_start();
 
 //Client-side validation happened on memoIndex, don't need to check if the post variables exist
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
-	
-	//Get file for writing to
-	$file = "memos.xml";
-	$filePath = fopen($file, "rb") or die("Can't open memo XML file: addMemo.php");
-	$data = fread($filePath, filesize($file));
-	
 	//Open a DOMDocument - tree-based parsing
 	$xml = new DOMDocument();
 	$xml->formatOutput = true;
 	$xml->preserveWhiteSpace = false;
-	$xml->loadXML($data) or die("Can't load memo XML file: addMemo.php");
+	$xml->load("memos.xml") or die("Can't load memo XML file: addMemo.php");
 	
 	$rootElement = $xml->documentElement;	//all_memos
-	
+	echo $rootElement->childNodes->item(1)->nodeName;
+	/*
 	//get user element
-	foreach($rootElement->childNodes AS $user){
-		if($user->getAttribute("name") == $_SESSION["user"]){
-			$userElement = $user; 
+	foreach($rootElement->childNodes AS $rootChild){
+		if($rootChild->hasAttribute("name"){
+			if($rootChild->getAttribute("name") == $_SESSION["user"]){
+			$userElement = $rootChild; 
 			break;
+			}
 		}
 	}
 	
 	//get implicit data
 	$date = date(d-m-Y);
 	$sender = $_SESSION["user"];
-	$latestID = $userElement->$rootElement->childNodes->item(1)->getAttribute("id");
+	$latestID = $rootElement->childNodes->item(1)->getAttribute("id");
 	$newID = latestID + 1;
 	
 	//get explicit data (passed via POST) - validated client-side on memoIndex.php
@@ -49,5 +46,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 			header("Location: memoIndex.php"); 
 		}
 	}
+	*/
 }
 ?>

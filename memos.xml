@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <all_memos>
 	<user name="admin">
-		<memo id = "003">
+		<memo id="003">
 			<title>Hello there</title>
 			<recipient>me</recipient>
 			<date>13/10/2017</date>
@@ -9,7 +9,7 @@
 			<url>www.google.com</url>
 		</memo>
 		
-		<memo id = "002">
+		<memo id="002">
 			<title>Second memo</title>
 			<recipient>Ben</recipient>
 			<date>13/10/2017</date>
@@ -17,7 +17,7 @@
 			<url>www.google.com</url>
 		</memo>
 		
-		<memo id = "001">
+		<memo id="001">
 			<title>First memo</title>
 			<recipient>Random McRandomFace</recipient>
 			<date>13/10/2017</date>
