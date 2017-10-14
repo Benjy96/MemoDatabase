@@ -10,26 +10,29 @@ $memos = $xmlDoc->getElementsByTagName("memo");
 
 $query = $_GET["q"];
 
-if(strlen($query) > 0){
-	$hint = "";
-	
-	//go through all memos to search for matches
-	for($i = 0; $i<($memos->length); $i++){
-		$currentMemo = $memos->item($i)->getAttribute("id");
-		if($currentMemo == $query){
-			$memoTitle = $memos->item($i)->childNodes->item(0)->nodeValue;
-			$memoDate = $memos->item($i)->childNodes->item(2)->nodeValue;
-			$hint = "(" . $currentMemo . ")" . " " . $memoTitle . ", posted on " . $memoDate;
-			break;
+searchByID();
+
+function searchByID(){
+	if(strlen($query) > 0){
+		$hint = "";
+		
+		//for each memo
+			//if(id[0] == q[0]
+				//for each q character;
+					//if(id[x] == q[x]
+						//set hint
+
+		for($i = 0; $i<($memos->length); $i++){
+			
 		}
+		
+		if($hint == ""){
+			$response = "nothing found";
+		}else{
+			$response = $hint;
+		}
+		
+		echo $response;
 	}
-	
-	if($hint == ""){
-		$response = "nothing found";
-	}else{
-		$response = $hint;
-	}
-	
-	echo $response;
 }
 ?>

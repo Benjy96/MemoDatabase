@@ -170,7 +170,7 @@ function displayAddMemoSectionInvalid(){ ?>
 		xmlhttp.onreadystatechange=function(){
 			if(this.readyState==4 && this.status==200){
 				document.getElementById("responsiveSearch").innerHTML=this.response;
-				document.getElementById("").style.border="1px solid";
+				document.getElementById("responsiveSearch").style.border="1px solid";
 			}
 		}
 		
