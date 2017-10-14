@@ -2,6 +2,13 @@
 <all_memos>
 	<last_updated>admin</last_updated>
 	<user name="admin">
+		<memo id="10">
+			<title>First memo</title>
+			<recipient>Random McRandomFace</recipient>
+			<date>13/10/2017</date>
+			<body>This is really just a test, not exactly a memo.</body>
+			<url>www.google.com</url>
+		</memo>
 		<memo id="3">
 			<title>Hello there</title>
 			<recipient>me</recipient>

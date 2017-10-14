@@ -12,13 +12,6 @@ $query = $_GET["q"];
 
 if(strlen($query) > 0){
 	$hint = "";
-	
-	//for each memo
-		//if(id[0] == q[0]
-			//for each q character;
-				//if(id[x] == q[x]
-					//set hint
-
 					
 	for($i = 0; $i<($memos->length); $i++){
 		$currentMemo = $memos->item($i)->getAttribute("id");
@@ -26,7 +19,7 @@ if(strlen($query) > 0){
 			if($hint==""){
 				$hint = $currentMemo;
 			}else{
-				$hint = $hint . "<br/>";
+				$hint = $currentMemo . "<br/>" . $hint;
 			}
 		}
 	}
