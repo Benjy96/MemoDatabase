@@ -10,8 +10,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	$xml->preserveWhiteSpace = false;
 	$xml->load("memos.xml") or die("Can't load memo XML file: addMemo.php");
 	
-	$rootElement = $xml->documentElement;	//all_memos
-	echo $rootElement->childNodes->item(1)->nodeName;
+	//get root element
+	$rootElement = $xml->documentElement;	
+	//get last user to make a memo so we can locate the most recent memo
+	$lastUpdated = rootElement->childNodes->item(0)->nodeValue;
+	
+	
 	/*
 	//get user element
 	foreach($rootElement->childNodes AS $rootChild){
