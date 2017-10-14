@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	}
 	
 	//get implicit data
-	$date = date(d-m-Y);
+	$date = date("d/m/y");
 	$currentUser = $sender->getAttribute("name");
 	//get last memo entered's ID:
 	foreach($rootElement->childNodes AS $rootChild){
