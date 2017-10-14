@@ -8,7 +8,6 @@
 			<body>This app is pretty crap. Heh, that rhymed.</body>
 			<url>www.google.com</url>
 		</memo>
-		
 		<memo id="002">
 			<title>Second memo</title>
 			<recipient>Ben</recipient>
@@ -16,7 +15,6 @@
 			<body>Getting slightly suicidal - it's a side effect of HTMLitis</body>
 			<url>www.google.com</url>
 		</memo>
-		
 		<memo id="001">
 			<title>First memo</title>
 			<recipient>Random McRandomFace</recipient>
@@ -24,10 +22,6 @@
 			<body>This is really just a test, not exactly a memo.</body>
 			<url>www.google.com</url>
 		</memo>
-		<!-- ANOTHER MEMO -->
     </user>
-	
-	<!-- ANOTHER USER -->
-	
     <last_updated>Thursday, May 26, 2016: 1:40 PM EST</last_updated>
 </all_memos>
