@@ -159,6 +159,11 @@ function displayAddMemoSectionInvalid(){ ?>
 		}
 	}
 	
+	function showResult(string){
+		
+		
+	}
+	
 	</script>
 	<!-- /Custom JavaScript -->
 	
@@ -215,13 +220,18 @@ function displayAddMemoSectionInvalid(){ ?>
 	
       <h2>Memo Database</h2>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search Memos...">
+        <input type="text" class="form-control" placeholder="Search Memos..." onkeyup="showResult(this.value)">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button">
             <span class="glyphicon glyphicon-search"></span>
           </button>
         </span>
       </div>
+	  <!-- DROPDOWN LIVE SEARCH RESULT -->
+	  <div id="responsiveSearch">
+		test
+	  </div>
+	  <!-- /DROPDOWN LIVE SEARCH RESULT -->
     </div>
 	<!-- /SIDERBAR -->
 
