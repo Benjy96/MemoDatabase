@@ -175,7 +175,7 @@ function displayAddMemoSectionInvalid(){ ?>
 		if(found == false) current = temp;
 		showMemo();
 		document.getElementById("responsiveSearch").innerHTML = "";
-		document.getElementById("SearchMemos").innerHTML = "";
+		document.getElementById("SearchMemos").value = "";
 	}
 	
 	function showResult(string){
