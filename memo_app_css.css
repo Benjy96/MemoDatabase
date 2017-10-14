@@ -59,7 +59,10 @@
 }
 
 /* GET A SCALABLE HEIGHT */
-.row.content { height: 1500px }
+.row.content { 
+	height: 100%; 
+	position: absolute;
+}
 
 .circle {
 	border-radius: 50%;
