@@ -10,7 +10,8 @@ $memos = $xmlDoc->getElementsByTagName("memo");
 
 $query = $_GET["q"];
 if(strlen($query) > 0){
-	if(is_numeric($query)){	//If we are searching by ID
+	//If we are searching by ID
+	if(is_numeric($query)){	
 		$hint = "";
 						
 		for($i = 0; $i<($memos->length); $i++){
@@ -41,28 +42,30 @@ if(strlen($query) > 0){
 		}
 		
 		echo $response;
-	}else{	//Else search for text
+	//Else search for text (sender/author or recipient or title)
+	}else{	
 		$hint = "";
 		
 		for($i = 0; $i <($memos->length); $i++){
 			$currentMemo = $memos->item($i)->getAttribute("id");
 			$sender	= $memos->item($i)->parentNode->getAttribute("name");	//"author"
+			$title = $memos->item($i)->childNodes->item(0)->nodeValue;
 			$recipient = $memos->item($i)->childNodes->item(1)->nodeValue;
 			$date = $memos->item($i)->childNodes->item(2)->nodeValue;
 			
-			if(stristr($sender, $query) || stristr($recipient, $query)){
+			if(stristr($sender, $query) || stristr($recipient, $query) || stristr($title, $query)){
 				if($hint ==""){
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
-					$currentMemo . ") sent to" .
+					$currentMemo . "), Sent to " .
 					$recipient . 
-					", by ". $sender .
+					" by ". $sender .
 					" on " . $date .
 					"</div>";
 				}else{
 					$hint = $hint . "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
 					$currentMemo . "), Sent to " .
 					$recipient . 
-					", by " . $sender . 
+					" by " . $sender . 
 					" on " . $date .
 					"</div>";
 				}
