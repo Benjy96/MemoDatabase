@@ -1,11 +1,18 @@
 <?php
 
+/*
+AJAX Search functionality implemented in this file.
+
+If the user's query is numeric, search for a memo's id, else search for text fields.
+The user can search/narrow down memos via text fields such as title, author, and recipient.
+
+*/
+
 $xmlDoc = new DOMDocument();
 $xmlDoc->formatOutput = true;
 $xmlDoc->preserveWhiteSpace = false;
 $xmlDoc->load("memos.xml");
 
-//let's start with a search by ID - can change the params later
 $memos = $xmlDoc->getElementsByTagName("memo");
 
 $query = $_GET["q"];
