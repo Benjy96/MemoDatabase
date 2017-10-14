@@ -174,6 +174,8 @@ function displayAddMemoSectionInvalid(){ ?>
 		}
 		if(found == false) current = temp;
 		showMemo();
+		document.getElementById("responsiveSearch").innerHTML = "";
+		document.getElementById("SearchMemos").innerHTML = "";
 	}
 	
 	function showResult(string){
@@ -187,14 +189,12 @@ function displayAddMemoSectionInvalid(){ ?>
 		xmlhttp.onreadystatechange=function(){
 			if(this.readyState==4 && this.status==200){
 				document.getElementById("responsiveSearch").innerHTML=this.response;
-				document.getElementById("responsiveSearch").style.border="1px solid";
 			}
 		}
 		
 		xmlhttp.open("GET", "searchMemos.php?q=" + string, true);
 		xmlhttp.send();
 	}
-	
 	</script>
 	<!-- /Custom JavaScript -->
 	
@@ -251,18 +251,14 @@ function displayAddMemoSectionInvalid(){ ?>
 	
       <h2>Memo Database</h2>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search Memos..." onkeyup="showResult(this.value)">
-        <span class="input-group-btn">
+        <input type="text" id="SearchMemos" onfocus="this.value=''" class="form-control" placeholder="Search memos..." onkeyup="showResult(this.value)">
+		<span class="input-group-btn">
           <button class="btn btn-default" type="button">
             <span class="glyphicon glyphicon-search"></span>
           </button>
         </span>
-      </div>
-	  <!-- DROPDOWN LIVE SEARCH RESULT -->
-	  <div id="responsiveSearch">	<!-- HIDDEN BY DEFAULT -->
-		test
 	  </div>
-	  <!-- /DROPDOWN LIVE SEARCH RESULT -->
+	  <div id="responsiveSearch" class="panel panel-default main-text"></div>
     </div>
 	<!-- /SIDERBAR -->
 

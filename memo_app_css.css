@@ -13,6 +13,12 @@
 	Assisted by: https://material.io/color
 */
 
+.panel-body:hover{
+	background-color: #009688;
+	border-color: #009688;
+	color: white;
+}
+
 .notice {
 	color: red;
 }
