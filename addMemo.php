@@ -1,5 +1,23 @@
 <?php 
 session_start();
+/*
+The way this works:
+
+XML file stores all memos, and each memo is assigned underneath a "user" (that created it).
+
+For memo ID: every time a memo is added, the <last_updated> field records what user the memo was assigned to,
+meaning we can then use this information to get the LAST memo id (since memo IDs increment
+with every addition).
+
+For adding a memo, we first find implicit and explicit data. Implicit data is, for example,
+the current logged in user (sender) and the date/time. We then add the user's memo to their
+corresponding section of the memo XML file.
+
+! - The login system is directly tied to memo storage and creation.
+
+*/
+
+/* ----- */
 
 /*
 Client-side validation happened on memoIndex; we don't need to check if the post variables exist
@@ -118,5 +136,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	
 	//Dump new xml back into the file
 	$xml->save("memos.xml");
+	header("Location: memoIndex.php");
 }
 ?>
