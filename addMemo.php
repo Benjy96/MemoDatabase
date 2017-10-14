@@ -76,9 +76,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 			$_SESSION["invalidURL"] = true;
 			
 			header("Location: memoIndex.php"); 
-		}else{
-			$URL = "";
 		}
+	}else{
+		$URL = "";
 	}
 	
 	//we now have validated explicit and implicit data, let's create the memo and add it to the XML file
@@ -132,7 +132,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	$rootElement->replaceChild($newLastUpdatedNode, $lastUpdatedNode);
 	
 	//Dump new xml back into the file
-	$xml->save("memos.xml");
-	header("Location: memoIndex.php");
+	if($_SESSION["invalidURL"] == false || !isset($_SESSION["invalidURL"])){
+		$xml->save("memos.xml");
+		header("Location: memoIndex.php");
+	}
 }
 ?>
