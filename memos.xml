@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <all_memos>
 	<last_updated>admin</last_updated>
+	<user name="guest">
+	</user>
+	<user name="test">
+	</user>
 	<user name="admin">
 		<memo id="10">
 			<title>Testing out multiple searches</title>

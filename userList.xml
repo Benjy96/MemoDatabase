@@ -2,13 +2,17 @@
 <userList>
 
 <users>
+	<user id="102">
+		<username>guest</username>
+		<password>password</password>
+	</user>
 	<user id="101">
 		<username>test</username>
 		<password>test</password>
 	</user>
 	<user id="100">
-	  <username>admin</username>
-	  <password>admin</password>
+		<username>admin</username>
+		<password>admin</password>
 	</user>
 </users>
 	
