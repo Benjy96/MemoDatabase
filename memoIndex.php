@@ -160,8 +160,22 @@ function displayAddMemoSectionInvalid(){ ?>
 	}
 	
 	function showResult(string){
+		//Hide the dropdown result box
+		if(string.length == 0){
+			document.getElementById("responsiveSearch").innerHTML = "";
+			document.getElementById("responsiveSearch").style.border="0px"; //add style
+			return;
+		}
 		
+		xmlhttp.onreadystatechange=function(){
+			if(this.readyState==4 && this.status==200){
+				document.getElementById("responsiveSearch").innerHTML=this.response;
+				document.getElementById("").style.border="1px solid";
+			}
+		}
 		
+		xmlhttp.open("GET", "searchMemos.php?q=" + string, true);
+		xmlhttp.send();
 	}
 	
 	</script>
@@ -228,7 +242,7 @@ function displayAddMemoSectionInvalid(){ ?>
         </span>
       </div>
 	  <!-- DROPDOWN LIVE SEARCH RESULT -->
-	  <div id="responsiveSearch">
+	  <div id="responsiveSearch">	<!-- HIDDEN BY DEFAULT -->
 		test
 	  </div>
 	  <!-- /DROPDOWN LIVE SEARCH RESULT -->
