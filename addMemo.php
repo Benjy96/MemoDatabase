@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	if(!empty($_POST["memoURL"])){
 		$URL = $_POST["memoURL"];
 		//if invalid, return to the form
-		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$URL)) {
 			$_SESSION["memoTitle"] = $title;
 			$_SESSION["memoBody"] = $body;
 			$_SESSION["memoRecipient"] = $recipient;
