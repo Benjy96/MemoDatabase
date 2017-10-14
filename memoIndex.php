@@ -96,19 +96,19 @@ function displayAddMemoSectionInvalid(){ ?>
 	function nextMemo(){
 		if(current < memos.length) {
 			current++;
-			showMemo();
+			showMemo(current);
 		}
 	}
 	
 	function previousMemo(){
 		if(current > 0){
 			current--;
-			showMemo();
+			showMemo(current);
 		}
 	}
 	
 	//Display a stored memo
-	function showMemo(){
+	function showMemo(current){
 		updateMemoDisplayedIndicator();
 		setButtons();
 		
@@ -194,7 +194,7 @@ function displayAddMemoSectionInvalid(){ ?>
   
   </head>
   <!-- /HEADER -->
-<body onload="showMemo()">	<!-- Display memos on load -->
+<body onload="showMemo(0)">	<!-- Display memos on load -->
 
 <div class="container-fluid">
   <div class="row content">

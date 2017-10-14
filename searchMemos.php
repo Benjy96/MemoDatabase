@@ -10,29 +10,33 @@ $memos = $xmlDoc->getElementsByTagName("memo");
 
 $query = $_GET["q"];
 
-searchByID();
+if(strlen($query) > 0){
+	$hint = "";
+	
+	//for each memo
+		//if(id[0] == q[0]
+			//for each q character;
+				//if(id[x] == q[x]
+					//set hint
 
-function searchByID(){
-	if(strlen($query) > 0){
-		$hint = "";
-		
-		//for each memo
-			//if(id[0] == q[0]
-				//for each q character;
-					//if(id[x] == q[x]
-						//set hint
-
-		for($i = 0; $i<($memos->length); $i++){
-			
+					
+	for($i = 0; $i<($memos->length); $i++){
+		$currentMemo = $memos->item($i)->getAttribute("id");
+		if(stristr($currentMemo, $query)){
+			if($hint==""){
+				$hint = $currentMemo;
+			}else{
+				$hint = $hint . "<br/>";
+			}
 		}
-		
-		if($hint == ""){
-			$response = "nothing found";
-		}else{
-			$response = $hint;
-		}
-		
-		echo $response;
 	}
+	
+	if($hint == ""){
+		$response = "nothing found";
+	}else{
+		$response = $hint;
+	}
+	
+	echo $response;
 }
 ?>
