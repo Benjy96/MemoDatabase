@@ -1,5 +1,14 @@
 <?php 
 
+/*
+
+TO DO:
+
+- Finish implementing create memo
+
+
+*/
+
 session_start();
 
 //Client-side validation happened on memoIndex, don't need to check if the post variables exist

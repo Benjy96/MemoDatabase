@@ -1,4 +1,16 @@
-<?php session_start(); 
+<?php 
+
+/* 
+
+TODO:
+
+- On failed form submission, return with the URL option expanded, and with a custom bootstrap message
+	Use the .is-invalid class for server-side custom validation message (bootstrap)
+
+*/
+
+
+session_start(); 
 
 if(!isset($_SESSION["user"])){
 	header("Location: login.php");
