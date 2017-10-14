@@ -33,11 +33,11 @@ if(strlen($query) > 0){
 					", by ". $currentSender .
 					"</div>";
 				}else{
-					$hint = $hint . "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
+					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
 					$currentMemo . ") " .
 					$currentTitle . 
 					", by " . $currentSender . 
-					"</div>";
+					"</div>" . $hint;
 				}
 			}
 		}
@@ -48,6 +48,7 @@ if(strlen($query) > 0){
 			$response = $hint;
 		}
 		
+		//Return our response to memoIndex.php
 		echo $response;
 	//Else search for text (sender/author or recipient or title)
 	}else{	
@@ -60,6 +61,7 @@ if(strlen($query) > 0){
 			$recipient = $memos->item($i)->childNodes->item(1)->nodeValue;
 			$date = $memos->item($i)->childNodes->item(2)->nodeValue;
 			
+			//If the user's query is within author, recipient, or title of the memo, make suggestions
 			if(stristr($sender, $query) || stristr($recipient, $query) || stristr($title, $query)){
 				if($hint ==""){
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
@@ -69,12 +71,12 @@ if(strlen($query) > 0){
 					" on " . $date .
 					"</div>";
 				}else{
-					$hint = $hint . "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
+					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
 					$currentMemo . "), Sent to " .
 					$recipient . 
 					" by " . $sender . 
 					" on " . $date .
-					"</div>";
+					"</div>" . $hint;
 				}
 			}
 		}
@@ -84,6 +86,7 @@ if(strlen($query) > 0){
 			$response = $hint;
 		}
 		
+		//Return our response to memoIndex.php
 		echo $response;
 	}
 }
