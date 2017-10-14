@@ -300,6 +300,5 @@ function displayAddMemoSectionInvalid(){ ?>
 	<!-- RIGHT CONTAINER -->
   </div>
 </div>
-
 </body>
 </html>
