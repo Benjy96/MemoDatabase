@@ -25,7 +25,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 		}
 	}
 	
-	/*
 	//get implicit data
 	$date = date(d-m-Y);
 	$sender = $_SESSION["user"];
@@ -57,6 +56,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 			header("Location: memoIndex.php"); 
 		}
 	}
-	*/
 }
 ?>

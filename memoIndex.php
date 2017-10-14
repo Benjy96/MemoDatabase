@@ -34,9 +34,7 @@ function displayAddMemoSectionInvalid(){ ?>
 	<h4>Create a Memo:</h4>
       <form role="form" action="addMemo.php" method="post">
         <div class="form-group">
-          <input required name="memoTitle" type="text" class="form-control" placeholder="* Title...">
-			<?php echo $_SESSION["title"]; ?>
-		  </input>
+          <input required name="memoTitle" type="text" value="<?php echo $_SESSION["memoTitle"]; ?>" class="form-control" placeholder="* Title..."/>
 		</div>
 		<div class="form-group">
           <textarea required name="memoBody" class="form-control" rows="3" placeholder="* Memo..."></textarea>
