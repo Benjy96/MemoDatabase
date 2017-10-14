@@ -13,25 +13,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	//get root element
 	$rootElement = $xml->documentElement;	
 	//get last user to make a memo so we can locate the most recent memo
-	$lastUpdated = rootElement->childNodes->item(0)->nodeValue;
+	$lastUserUpdated = $rootElement->childNodes->item(0)->nodeValue;
 	
-	
-	/*
-	//get user element
+	//get user element (to create a memo under)
 	foreach($rootElement->childNodes AS $rootChild){
-		if($rootChild->hasAttribute("name"){
+		if($rootChild->hasAttribute("name")){
 			if($rootChild->getAttribute("name") == $_SESSION["user"]){
-			$userElement = $rootChild; 
-			break;
+				$currentUser = $rootChild->getAttribute("name");
+				break;
 			}
 		}
 	}
 	
+	/*
 	//get implicit data
 	$date = date(d-m-Y);
 	$sender = $_SESSION["user"];
-	$latestID = $rootElement->childNodes->item(1)->getAttribute("id");
-	$newID = latestID + 1;
+	//get last memo entered's ID:
+	foreach($rootElement->childNodes AS $rootChild){
+		if($rootChild->hasAttribute("name")){
+			if($rootChild->getAttribute("name") == $lastUserUpdated){
+				$newID = $rootChild->childNodes->item(0)->getAttribute("id");
+				break;
+			}
+		}
+	}
+	$newID++;
 	
 	//get explicit data (passed via POST) - validated client-side on memoIndex.php
 	$title = $_POST["memoTitle"];
