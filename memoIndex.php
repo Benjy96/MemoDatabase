@@ -49,16 +49,16 @@ function displayAddMemoSectionInvalid(){ ?>
           <input required name="memoTitle" type="text" value="<?php echo $_SESSION["memoTitle"]; ?>" class="form-control" placeholder="* Title..."/>
 		</div>
 		<div class="form-group">
-          <textarea required name="memoBody" class="form-control" rows="3" placeholder="* Memo..."></textarea>
+          <textarea required name="memoBody" class="form-control" rows="3" placeholder="* Memo..."><?php echo $_SESSION["memoBody"]; ?></textarea>
         </div>
 		<div class="form-group">
-          <input required name="memoRecipient" type="text" class="form-control" placeholder="* Recipient(s)..."/> 
+          <input required name="memoRecipient" value="<?php echo $_SESSION["memoRecipient"]; ?>"type="text" class="form-control" placeholder="* Recipient(s)..."/> 
 		</div>
 		<div class="form-group">
-		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#memoURL">Optional URL</button>
-			<div id="memoURL" class="collapse">
-				  <input name="memoURL" type="text" class="form-control" placeholder="URL..."/> 
-			</div>
+		  <input name="memoURL" type="text" class="form-control is-invalid" placeholder="URL..."/> 
+		  <div class="notice">
+			 Please enter a valid URL, or leave blank.
+		  </div>
 		</div>
 		<br>
 		<span class="notice">* fields are required</span>
