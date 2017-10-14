@@ -1,14 +1,4 @@
 <?php 
-
-/*
-
-TO DO:
-
-- Finish implementing create memo
-
-
-*/
-
 session_start();
 
 /*
@@ -25,13 +15,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	//get root element
 	$rootElement = $xml->documentElement;	
 	//get last user to make a memo so we can locate the most recent memo
-	$lastUserUpdated = $rootElement->childNodes->item(0)->nodeValue;
+	$lastUpdated = $rootElement->childNodes->item(0)->nodeValue;
+	$lastUpdatedNode = $rootElement->childNodes->item(0);
 	
 	//get user element (to create a memo under)
 	foreach($rootElement->childNodes AS $rootChild){
 		if($rootChild->hasAttribute("name")){
 			if($rootChild->getAttribute("name") == $_SESSION["user"]){
-				$currentUser = $rootChild->getAttribute("name");
+				$sender = $rootChild;	//current user's XML node
 				break;
 			}
 		}
@@ -39,11 +30,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	
 	//get implicit data
 	$date = date(d-m-Y);
-	$sender = $_SESSION["user"];
+	$currentUser = $sender->getAttribute("name");
 	//get last memo entered's ID:
 	foreach($rootElement->childNodes AS $rootChild){
 		if($rootChild->hasAttribute("name")){
-			if($rootChild->getAttribute("name") == $lastUserUpdated){
+			if($rootChild->getAttribute("name") == $lastUpdated){
 				$newID = $rootChild->childNodes->item(0)->getAttribute("id");
 				break;
 			}
@@ -64,30 +55,68 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 			$_SESSION["memoTitle"] = $title;
 			$_SESSION["memoBody"] = $body;
 			$_SESSION["memoRecipient"] = $recipient;
+			$_SESSION["invalidURL"] = true;
 			
 			header("Location: memoIndex.php"); 
 		}
+	}else{
+		$URL = "";
 	}
 	
 	//we now have validated explicit and implicit data, let's create the memo and add it to the XML file
+	
+	//Sender will be parent
+	
 	//Create memo title node
 	$newTitle=$xml->createElement("title");
-	$newTitleText=$xml->createTextNode($title);
+	$newTitleText=$xml->createTextNode("$title");
 	$newTitle->appendChild($newTitleText);
 	
 	//Create recipient node
-	
+	$newRecipient=$xml->createElement("recipient");
+	$newRecipientText=$xml->createTextNode("$recipient");
+	$newRecipient->appendChild($newRecipientText);
+
 	//Create date node
+	$newDate=$xml->createElement("date");
+	$newDateText=$xml->createTextNode("$date");
+	$newDate->appendChild($newDateText);
 	
 	//Create body node
+	$newBody=$xml->createElement("body");
+	$newBodyText=$xml->createTextNode("$body");
+	$newBody->appendChild($newBodyText);
 	
 	//Create URL node
+	$newURL=$xml->createElement("url");
+	$newURLText=$xml->createTextNode("$URL");
+	$newURL->appendChild($newURLText);
 	
 	//Create the collated memo
+	$newMemoNode=$xml->createElement("memo");
+	$newMemoNode->setAttribute("id", $newID);
+	//Add memo child nodes
+	$newMemoNode->appendChild($newTitle);	//Title
+	$newMemoNode->appendChild($newRecipient);	//Recipient
+	$newMemoNode->appendChild($newDate);	//Date
+	$newMemoNode->appendChild($newBody);	//Body
+	$newMemoNode->appendChild($newURL);	//URL
 	
+	//Add memo to the data set
+	//use current user to insert where we need it
+	$lastMemoFromUser=$sender->firstChild;
+	$sender->insertBefore($newMemoNode, $lastMemoFromUser);
 	
+	//Update last user updated
+	$newLastUpdatedNode=$xml->createElement("last_updated");
+	$newLastUpdatedText=$xml->createTextNode($currentUser);
+	$newLastUpdatedNode->appendChild($newLastUpdatedText);
+	$rootElement->replaceChild($newLastUpdatedNode, $lastUpdatedNode);
 	
+	//Debug
+	echo "<xmp>NEW:\n". $xml->saveXML() ."</xmp>";
 	
-	
+	//Dump new xml back into the file
+	$xml->save("memos.xml");
 }
 ?>

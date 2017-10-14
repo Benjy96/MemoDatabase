@@ -251,7 +251,7 @@ function displayAddMemoSectionInvalid(){ ?>
 
 	  <!-- ADD MEMO SECTION -->
       <?php 
-	  if(isset($_SESSION["memoTitle"])){
+	  if(isset($_SESSION["invalidURL"]) && $_SESSION["invalidURL"] == true){
 		displayAddMemoSectionInvalid();
 	  }else{
 		displayAddMemoSection();
