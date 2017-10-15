@@ -16,27 +16,32 @@ $xmlDoc->load("memos.xml");
 $memos = $xmlDoc->getElementsByTagName("memo");
 
 $query = $_GET["q"];
-if(strlen($query) > 0){
+$firstChar = substr($query, 0, 1);
+if(strlen($query) > 0){	
 	//If we are searching by ID
-	if(is_numeric($query)){	
+	if(is_numeric($firstChar)){	
 		$hint = "";
 						
 		for($i = 0; $i<($memos->length); $i++){
 			$currentMemo = $memos->item($i)->getAttribute("id");
 			$currentTitle = $memos->item($i)->childNodes->item(0)->nodeValue;
 			$currentSender = $memos->item($i)->parentNode->getAttribute("name");
-			if(stristr($currentMemo, $query)){
+			$date = $memos->item($i)->childNodes->item(2)->nodeValue;
+			
+			if(stristr($currentMemo, $query) || stristr($date, $query)){
 				if($hint==""){
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
 					$currentMemo . ") " .
 					$currentTitle . 
 					", by ". $currentSender .
+					" on " . $date .
 					"</div>";
 				}else{
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
 					$currentMemo . ") " .
 					$currentTitle . 
 					", by " . $currentSender . 
+					" on " . $date .
 					"</div>" . $hint;
 				}
 			}
