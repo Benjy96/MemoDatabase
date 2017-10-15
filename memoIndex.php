@@ -118,12 +118,14 @@ function displayAddMemoSectionInvalid(){ ?>
 		var memoId = memos[current].getAttribute("id");
 		
 		var title = memos[current].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+		var recipient = memos[current].getElementsByTagName("recipient")[0].childNodes[0].nodeValue;
 		var date = memos[current].getElementsByTagName("date")[0].childNodes[0].nodeValue;
 		var body = memos[current].getElementsByTagName("body")[0].childNodes[0].nodeValue;
 		var url = memos[current].getElementsByTagName("url")[0].childNodes[0].nodeValue;
 		
 		document.getElementById("memoID").innerHTML = " " + memoId;
 		document.getElementById("title").innerHTML = " " + title;
+		document.getElementById("recipient").innerHTML = " " + recipient;
 		document.getElementById("sender").innerHTML = " " + sender;
 		document.getElementById("date").innerHTML = " " + date;
 		document.getElementById("body").innerHTML = " " + body;
@@ -278,6 +280,7 @@ function displayAddMemoSectionInvalid(){ ?>
 			<p id="body">Body</p>
 			<footer id="sender"> name</footer>
 		  </blockquote>
+		  <span class="glyphicon glyphicon-time"></span> <p class="inline bg-info">TO:</p><p id="recipient" class="inline"> somebody</p></br>
 		  <span class="glyphicon glyphicon-time"></span> <p class="inline bg-info">DATE:</p><p id="date" class="inline"> 666/666/666</p></br>
 		  <span class="glyphicon glyphicon-barcode"></span> <p class="inline bg-info">MEMO ID:</p><p id="memoID" class="inline"> memoid: #342423432</p></br>
 		  <span class="glyphicon glyphicon-link"></span> <p class="inline bg-info">URL:</p><a id="url" class="inline"> memoid: #342423432</a>

@@ -6,28 +6,28 @@
 	<user name="test">
 	</user>
 	<user name="admin">
-		<memo id="10">
+		<memo id="2200">
 			<title>Testing out multiple searches</title>
 			<recipient>Me</recipient>
 			<date>14/10/2017</date>
-			<body>Made a memo with ID 10 just to see how the search function works when it has more than one result.</body>
+			<body>Made a memo with the same first ID number to see how it works.</body>
 			<url> </url>
 		</memo>
-		<memo id="3">
+		<memo id="2189">
 			<title>Hello there</title>
 			<recipient>me</recipient>
 			<date>13/10/2017</date>
 			<body>This app is pretty crap. Heh, that rhymed.</body>
 			<url>www.google.com</url>
 		</memo>
-		<memo id="2">
+		<memo id="1345">
 			<title>Second memo</title>
 			<recipient>Ben</recipient>
 			<date>13/10/2017</date>
 			<body>Getting slightly suicidal - it's a side effect of HTMLitis</body>
 			<url>www.google.com</url>
 		</memo>
-		<memo id="1">
+		<memo id="1000">
 			<title>First memo</title>
 			<recipient>Random McRandomFace</recipient>
 			<date>13/10/2017</date>
