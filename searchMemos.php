@@ -3,7 +3,7 @@
 /*
 AJAX Search functionality implemented in this file.
 
-If the user's query is numeric, search for a memo's id, else search for text fields.
+If the user's query is numeric, search for a memo's id/date, else search for text fields.
 The user can search/narrow down memos via text fields such as title, author, and recipient.
 
 */
@@ -18,7 +18,7 @@ $memos = $xmlDoc->getElementsByTagName("memo");
 $query = $_GET["q"];
 $firstChar = substr($query, 0, 1);
 if(strlen($query) > 0){	
-	//If we are searching by ID
+	//If we are searching by ID or date
 	if(is_numeric($firstChar)){	
 		$hint = "";
 						
