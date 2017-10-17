@@ -44,9 +44,13 @@ function login(){
 			if($username == $iterator->childNodes->item(0)->nodeValue){	//if username matches, check <user> password
 				if($password == $iterator->childNodes->item(1)->nodeValue){	//if password matches
 					$_SESSION["user"] = $iterator->childNodes->item(0)->nodeValue;	//set a session variable - current user
+					$_SESSION["wrongUser"] = false;
+					$_SESSION["wrongPass"] = false;
 					header("Location: memoIndex.php"); //log in
 				}
+				$_SESSION["wrongPass"] = true;
 			}
+			$_SESSION["wrongUser"] = true;
 		}
 		displayLogin();
 	}else{
@@ -94,7 +98,13 @@ function displayLogin(){
 		</div>
        
         <button class="btn btn-primary" type="submit">Sign in</button>
+		<?php if(isset($_SESSION["wrongUser"]) || $_SESSION["wrongPass"]){ ?>
+		<div class="notice"style="padding-top: 15px">
+		Wrong details entered.
+		</div>
+		<?php } ?>
       </form>
+	  
     </div> 
 	<!-- /LOGIN FORM -->
 	
