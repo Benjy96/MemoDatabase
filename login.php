@@ -98,7 +98,7 @@ function displayLogin(){
 		</div>
        
         <button class="btn btn-primary" type="submit">Sign in</button>
-		<?php if(isset($_SESSION["wrongUser"]) || $_SESSION["wrongPass"]){ ?>
+		<?php if($_SESSION["wrongUser"] == true || $_SESSION["wrongPass"] == true){ ?>
 		<div class="notice"style="padding-top: 15px">
 		Wrong details entered.
 		</div>
