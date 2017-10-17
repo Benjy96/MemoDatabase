@@ -48,6 +48,7 @@ function login(){
 				}
 			}
 		}
+		displayLogin();
 	}else{
 		displayLogin();
 	}
