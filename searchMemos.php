@@ -17,12 +17,19 @@ $memos = $xmlDoc->getElementsByTagName("memo");
 
 $query = $_GET["q"];
 $firstChar = substr($query, 0, 1);
+
+$maxDisplayedResults = 3;	//Max results displayed will be 2x this number, due to the if (first result) else (second result)
+	
 if(strlen($query) > 0){	
 	//If we are searching by ID or date
 	if(is_numeric($firstChar)){	
+		
 		$hint = "";
-						
+		
+		//Get AJAX Search Results
 		for($i = 0; $i<($memos->length); $i++){
+			if($i > $maxDisplayedResults) break;	//Limit the number of search results shown on screen concurrently
+			
 			$currentMemo = $memos->item($i)->getAttribute("id");
 			$currentTitle = $memos->item($i)->childNodes->item(0)->nodeValue;
 			$currentSender = $memos->item($i)->parentNode->getAttribute("name");
@@ -59,7 +66,10 @@ if(strlen($query) > 0){
 	}else{	
 		$hint = "";
 		
+		//Get AJAX Search Results
 		for($i = 0; $i <($memos->length); $i++){
+			if($i > $maxDisplayedResults) break;	//Limit the number of search results shown on screen concurrently
+			
 			$currentMemo = $memos->item($i)->getAttribute("id");
 			$sender	= $memos->item($i)->parentNode->getAttribute("name");	//"author"
 			$title = $memos->item($i)->childNodes->item(0)->nodeValue;
