@@ -12,31 +12,34 @@
 		
 	Assisted by: https://material.io/color
 */
-.panel-body:hover{
-	background-color: #009688;
-	border-color: #009688;
-	color: white;
-}
 
+/* TEXT */
 .notice {
 	color: red;
-}
-
-.bg-info {
-	background-color: #52c7b8;
 }
 
 .inline {
 	display: inline;
 }	
 
+.main-text { color: black; }
+/* /TEXT */
+
+.bg-info {
+	background-color: #52c7b8;
+}
+
+.panel-body:hover{
+	background-color: #009688;
+	border-color: #009688;
+	color: white;
+}
+
 .main-background { background-color: #eee; }
 
 .bottom-padding { margin-bottom: 15px; }
 
 .top-padding { margin-top: 5px; }
-
-.main-text { color: black; }
 
 .login-form { 
 	padding: 30px; 
@@ -61,6 +64,7 @@
 .row.content { 
 	height: 100%; 
 	position: absolute;
+	width: 100%;
 }
 /* /SET A SCALABLE HEIGHT */
 
