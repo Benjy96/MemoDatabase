@@ -1,6 +1,8 @@
 <?php 
 session_start(); 
 
+unset($_SESSION["formSubmitted"]);
+
 if(!isset($_SESSION["user"])){
 	header("Location: login.php");
 }

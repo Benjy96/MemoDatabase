@@ -24,6 +24,8 @@ Client-side validation happened on memoIndex; we don't need to check if the post
 In addition, we are not using $_SERVER["PHP_SELF"], so we don't need htmlspecialchars validation 
 */
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
+	//If a user enters the same details into the "Create memo" form more than once, the display doesn't update due to caching, this fixes that.
+	$_SESSION["formSubmitted"] = true;
 	//Open a DOMDocument - tree-based parsing
 	$xml = new DOMDocument();
 	$xml->formatOutput = true;
