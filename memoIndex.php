@@ -42,12 +42,15 @@ function displayAddMemoSectionInvalid(){ ?>
         </div>
 		<div class="form-group">
           <input required name="memoRecipient" value="<?php echo $_SESSION["memoRecipient"]; ?>"type="text" class="form-control" placeholder="* Recipient(s)..."/> 
+		  <?php if($_SESSION["invalidRecipient"] == true) { ?><div class="notice">
+			 Please enter a valid username. Special characters and numbers are not allowed.
+		  </div> <?php } ?>
 		</div>
 		<div class="form-group">
 		  <input name="memoURL" type="text" class="form-control is-invalid" placeholder="URL..."/> 
-		  <div class="notice">
+		  <?php if($_SESSION["invalidURL"] == true) { ?><div class="notice">
 			 Please enter a valid URL, or leave blank.
-		  </div>
+		  </div> <?php } ?>
 		</div>
 		<br>
 		<span class="notice">* fields are required</span>
@@ -300,7 +303,7 @@ function displayAddMemoSectionInvalid(){ ?>
 	  //Only display the add memo section if we have write priveleges. Everyone but the "guest" account has write priveleges for this memo database.
 	  
 	  if(!($_SESSION["user"] == "guest")){
-		  if(isset($_SESSION["invalidURL"]) && $_SESSION["invalidURL"] == true){
+		  if($_SESSION["invalidFormData"] == true){
 			displayAddMemoSectionInvalid();
 		  }else{
 			displayAddMemoSection();
