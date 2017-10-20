@@ -13,69 +13,6 @@
 	Assisted by: https://material.io/color
 */
 
-/* TEXT */
-.notice {
-	color: red;
-}
-
-.inline {
-	display: inline;
-}	
-
-.main-text { color: black; }
-/* /TEXT */
-
-.bg-info {
-	background-color: #52c7b8;
-}
-
-.panel-body:hover{
-	background-color: #009688;
-	border-color: #009688;
-	color: white;
-}
-
-.main-background { background-color: #eee; }
-
-.bottom-padding { margin-bottom: 15px; }
-
-.top-padding { margin-top: 5px; }
-
-.login-form { 
-	padding: 30px; 
-	max-width: 450px;
-	margin: 0 auto;
-}
-
-.sidenav {
-	background-color: #5d4037;
-	height: 100%;
-	color: white;
-	padding: 15px;
-}
-
-.input-group{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-right: 5px;
-}
-
-/* SET A SCALABLE HEIGHT */
-.row.content { 
-	height: 100%; 
-	position: absolute;
-	width: 100%;
-}
-/* /SET A SCALABLE HEIGHT */
-
-/* SHAPES */
-.circle {
-	border-radius: 50%;
-	width: 50px;
-	height: 50px; 
-}
-/* /SHAPES */
-
 /* Buttons */
 .btn-primary {
 	background-color: #009688;
@@ -113,4 +50,67 @@
 	color: white;
 }
 /* /Buttons */
+
+/* Page Layout */
+.main-background { background-color: #eee; }
+
+.bottom-padding { margin-bottom: 15px; }
+
+.top-padding { margin-top: 5px; }
+
+.input-group {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 5px;
+}
+
+.sidenav {
+	background-color: #5d4037;
+	height: 100%;
+	color: white;
+	padding: 15px;
+}
+
+.login-form { 
+	padding: 30px; 
+	max-width: 450px;
+	margin: 0 auto;
+}
+
+.panel-body:hover{
+	background-color: #009688;
+	border-color: #009688;
+	color: white;
+}
+
+.bg-info {
+	background-color: #52c7b8;
+}
+
+.row.content { 
+	height: 100%; 
+	position: absolute;
+	width: 100%;
+}
+/* /Page Layout */
+
+/* Shapes */
+.circle {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px; 
+}
+/* /Shapes */
+
+/* TEXT */
+.notice {
+	color: red;
+}
+
+.inline {
+	display: inline;
+}	
+
+.main-text { color: black; }
+/* /TEXT */
 
