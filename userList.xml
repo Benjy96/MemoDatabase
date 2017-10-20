@@ -2,6 +2,10 @@
 <userList>
 
 <users>
+	<user id="103">
+		<username>Bob</username>
+		<password>pass</password>
+	</user>
 	<user id="102">
 		<username>guest</username>
 		<password>password</password>

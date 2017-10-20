@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 
-unset($_SESSION["formSubmitted"]);
+unset($_SESSION["formSubmitted"]);	//Prevent the memo display form from NOT refreshing
 
 if(!isset($_SESSION["user"])){
 	header("Location: login.php");
