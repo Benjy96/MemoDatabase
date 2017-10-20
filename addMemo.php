@@ -17,7 +17,7 @@ corresponding section of the memo XML file.
 
 */
 
-/* ----- */
+/* ----- ADD MEMO ----- */
 
 /*
 Client-side validation happened on memoIndex; we don't need to check if the post variables exist
@@ -30,13 +30,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	$xml->preserveWhiteSpace = false;
 	$xml->load("memos.xml") or die("Can't load memo XML file: addMemo.php");
 	
-	//get root element
+	//Get root element
 	$rootElement = $xml->documentElement;	
 	//get last user to make a memo so we can locate the most recent memo
 	$lastUpdated = $rootElement->childNodes->item(0)->nodeValue;
 	$lastUpdatedNode = $rootElement->childNodes->item(0);
 	
-	//get user element (to create a memo under)
+	//Get user element (to create a memo under)
 	foreach($rootElement->childNodes AS $rootChild){
 		if($rootChild->hasAttribute("name")){
 			if($rootChild->getAttribute("name") == $_SESSION["user"]){
@@ -46,10 +46,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 		}
 	}
 	
-	//get implicit data
+	//Get implicit data
 	$date = date("d/m/y");
 	$currentUser = $sender->getAttribute("name");
-	//get last memo entered's ID:
+	//Get last memo entered's ID:
 	foreach($rootElement->childNodes AS $rootChild){
 		if($rootChild->hasAttribute("name")){
 			if($rootChild->getAttribute("name") == $lastUpdated){
@@ -60,29 +60,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	}
 	$newID++;
 	
-	//get explicit data (passed via POST) - validated client-side on memoIndex.php
+	//Get explicit data (passed via POST) - validated client-side on memoIndex.php
 	$title = $_POST["memoTitle"];
 	$body = $_POST["memoBody"];
 	$recipient = $_POST["memoRecipient"];
 
-	unset($_SESSION["invalidURL"]);
-	//validate the optional URL field - if invalid, return to the form
+	//Set explicit data (needs to be returned to memoIndex if the form is invalid)
+	$_SESSION["memoTitle"] = $title;
+	$_SESSION["memoBody"] = $body;
+	$_SESSION["memoRecipient"] = $recipient;
+	
+	//Clear previous invalid search
+	unset($_SESSION["invalidFormData"]);
+	
+	/*	Ensure the recipient name is appropriate (no numbers - this website is boring and official, probably used by the government. 
+		No xxX123_SlAyErZ456_ allowed unfortunately.	*/
+	if(!preg_match("/^[a-zA-Z ]*$/",$recipient)){
+		$_SESSION["invalidFormData"] = true;
+		header("Location: memoIndex.php");
+	}
+	
+	//Validate the optional URL field - if invalid, return to the form
 	if(!empty($_POST["memoURL"])){
 		$URL = $_POST["memoURL"];
 		//if invalid, return to the form
 		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$URL)) {
-			$_SESSION["memoTitle"] = $title;
-			$_SESSION["memoBody"] = $body;
-			$_SESSION["memoRecipient"] = $recipient;
-			$_SESSION["invalidURL"] = true;
-			
+			$_SESSION["invalidFormData"] = true;
 			header("Location: memoIndex.php"); 
 		}
 	}else{
 		$URL = " ";
 	}
 	
-	//we now have validated explicit and implicit data, let's create the memo and add it to the XML file
+	/* ----- We now have validated explicit and implicit data, let's create the memo and add it to the XML file ----- */
 	
 	//Sender will be parent
 	
@@ -133,7 +143,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	$rootElement->replaceChild($newLastUpdatedNode, $lastUpdatedNode);
 	
 	//Dump new xml back into the file
-	if($_SESSION["invalidURL"] == false || !isset($_SESSION["invalidURL"])){
+	if($_SESSION["invalidFormData"] == false || !isset($_SESSION["invalidFormData"])){
 		$xml->save("memos.xml");
 		header("Location: memoIndex.php");
 	}

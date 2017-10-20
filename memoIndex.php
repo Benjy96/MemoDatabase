@@ -298,7 +298,8 @@ function displayAddMemoSectionInvalid(){ ?>
 	  <!-- ADD MEMO SECTION -->
       <?php 
 	  //Only display the add memo section if we have write priveleges. Everyone but the "guest" account has write priveleges for this memo database.
-	  if(!$_SESSION["user"] == "guest"){
+	  
+	  if(!($_SESSION["user"] == "guest")){
 		  if(isset($_SESSION["invalidURL"]) && $_SESSION["invalidURL"] == true){
 			displayAddMemoSectionInvalid();
 		  }else{
