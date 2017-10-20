@@ -240,6 +240,9 @@ function displayAddMemoSectionInvalid(){ ?>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h3 class="modal-title main-text">Current User: <?php echo $_SESSION["user"]; ?></h3>
 			</div>
+			<div class="modal-body">
+			<h4 class="main-text">Write Priveleges: <?php if($_SESSION["user"] == "guest") echo "None"; else echo "Allowed";?></h4>
+			</div>
 			<div class="modal-footer">
 				<form action="login.php" method="post">
 					<button type="submit"  name="logout" class="btn btn-primary">Log out</button>

@@ -12,7 +12,6 @@
 		
 	Assisted by: https://material.io/color
 */
-
 .panel-body:hover{
 	background-color: #009688;
 	border-color: #009688;
@@ -58,20 +57,22 @@
 	margin-right: 5px;
 }
 
-/* GET A SCALABLE HEIGHT */
+/* SET A SCALABLE HEIGHT */
 .row.content { 
 	height: 100%; 
 	position: absolute;
 }
+/* /SET A SCALABLE HEIGHT */
 
+/* SHAPES */
 .circle {
 	border-radius: 50%;
 	width: 50px;
 	height: 50px; 
 }
+/* /SHAPES */
 
 /* Buttons */
-
 .btn-primary {
 	background-color: #009688;
 	border-color: #009688;
@@ -107,6 +108,5 @@
 	border-color: #52c7b8;
 	color: white;
 }
-
 /* /Buttons */
 
