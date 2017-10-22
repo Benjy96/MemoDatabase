@@ -70,6 +70,7 @@ function displayAddMemoSectionInvalid(){ ?>
   <title>Memo Database</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+	<meta http-equiv="cache-control" content="no-cache">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS & JavaScript-->
