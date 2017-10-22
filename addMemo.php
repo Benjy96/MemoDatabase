@@ -81,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user"])){
 	$_SESSION["memoRecipient"] = $recipient;
 	
 	//Clear previous invalid search
-	unset($_SESSION["invalidFormData"]);
+	$_SESSION["invalidFormData"] = false;
 	
 	/*	Ensure the recipient name is appropriate (no numbers - this website is boring and official, probably used by the government. 
 		No xxX123_SlAyErZ456_ allowed unfortunately.	*/
