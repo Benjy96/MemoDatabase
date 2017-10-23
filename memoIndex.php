@@ -91,12 +91,12 @@ function displayAddMemoSectionInvalid(){ ?>
 	} else { // IE6, IE5
 		var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
+	//Window variables - kept updated
 	xmlhttp.open("GET","memos.xml",false);
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML;
 	
-	//get all memos
-	memos=xmlDoc.getElementsByTagName("memo"); 
+
 	var current = 0;
 	
 	function nextMemo(){
@@ -115,6 +115,10 @@ function displayAddMemoSectionInvalid(){ ?>
 	
 	//Display a stored memo
 	function showMemo(){
+		//Get all memos
+		memos=xmlDoc.getElementsByTagName("memo"); 
+	
+		//Update memo # and button enabled/disabled status
 		updateMemoDisplayedIndicator();
 		setButtons();
 		
@@ -306,7 +310,7 @@ function displayAddMemoSectionInvalid(){ ?>
 	  //Only display the add memo section if we have write priveleges. Everyone but the "guest" account has write priveleges for this memo database.
 	  
 	  if(!($_SESSION["user"] == "guest")){
-		  if($_SESSION["invalidFormData"] == true){
+		  if(isset($_SESSION["invalidFormData"]) && $_SESSION["invalidFormData"] == true){
 			displayAddMemoSectionInvalid();
 		  }else{
 			displayAddMemoSection();
