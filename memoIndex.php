@@ -1,6 +1,5 @@
 <?php 
 session_start(); 
-
 $_SESSION["formSubmitted"] = false;	//Prevent the memo display form from NOT refreshing
 
 if(!isset($_SESSION["user"])){
@@ -94,15 +93,10 @@ function displayAddMemoSectionInvalid(){ ?>
 	xmlhttp.open("GET","memos.xml",false);
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML;
-	
-	//Get all memos each time we cycle or load the page
 	memos=xmlDoc.getElementsByTagName("memo"); 
 	
 	//Variable to track current memo displayed (index for memo array)
 	var current = 0;
-	
-	//Variable to fix concurrency issue. Check whether XML has updated before page refreshed.
-	var lastMemoID = "";
 	
 	function nextMemo(){
 		if(current < memos.length) {
@@ -124,17 +118,14 @@ function displayAddMemoSectionInvalid(){ ?>
 		if(reloaded == true){
 			current = 0;
 		}
-		
+
 		//Update memo # and button enabled/disabled status
 		updateMemoDisplayedIndicator();
 		setButtons();
 		
 		//Get all memo information
 		var sender = memos[current].parentNode.getAttribute("name");
-		
 		var memoId = memos[current].getAttribute("id");
-		if(lastMemoID == memoId) reload();
-		lastMemoID = memoId;
 		
 		var title = memos[current].getElementsByTagName("title")[0].childNodes[0].nodeValue;
 		var recipient = memos[current].getElementsByTagName("recipient")[0].childNodes[0].nodeValue;
