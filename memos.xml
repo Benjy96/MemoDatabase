@@ -1,38 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <all_memos>
-	<last_updated>admin</last_updated>
-	<user name="Bob">
+  <last_updated>admin</last_updated>
+  <user name="Bob">
 	</user>
-	<user name="test">
+  <user name="test">
 	</user>
-	<user name="admin">
-		<memo id="2200">
-			<title>Testing out multiple searches</title>
-			<recipient>Me</recipient>
-			<date>14/10/2017</date>
-			<body>Made a memo with the same first ID number to see how it works.</body>
-			<url> </url>
-		</memo>
-		<memo id="2189">
-			<title>Hello there</title>
-			<recipient>me</recipient>
-			<date>13/10/2017</date>
-			<body>This app is pretty crap. Heh, that rhymed.</body>
-			<url>www.google.com</url>
-		</memo>
-		<memo id="1345">
-			<title>Second memo</title>
-			<recipient>Ben</recipient>
-			<date>13/10/2017</date>
-			<body>Getting slightly suicidal - it's a side effect of HTMLitis</body>
-			<url>www.google.com</url>
-		</memo>
-		<memo id="1000">
-			<title>First memo</title>
-			<recipient>Random McRandomFace</recipient>
-			<date>13/10/2017</date>
-			<body>This is really just a test, not exactly a memo.</body>
-			<url>www.google.com</url>
-		</memo>
-    </user>
+  <user name="admin">
+    <memo id="2201">
+      <title>test</title>
+      <recipient>test</recipient>
+      <date>23/10/17</date>
+      <body>test</body>
+      <url> </url>
+    </memo>
+    <memo id="2200">
+      <title>Testing out multiple searches</title>
+      <recipient>Me</recipient>
+      <date>14/10/2017</date>
+      <body>Made a memo with the same first ID number to see how it works.</body>
+      <url> </url>
+    </memo>
+    <memo id="2189">
+      <title>Hello there</title>
+      <recipient>me</recipient>
+      <date>13/10/2017</date>
+      <body>This app is pretty crap. Heh, that rhymed.</body>
+      <url>www.google.com</url>
+    </memo>
+    <memo id="1345">
+      <title>Second memo</title>
+      <recipient>Ben</recipient>
+      <date>13/10/2017</date>
+      <body>Getting slightly suicidal - it's a side effect of HTMLitis</body>
+      <url>www.google.com</url>
+    </memo>
+    <memo id="1000">
+      <title>First memo</title>
+      <recipient>Random McRandomFace</recipient>
+      <date>13/10/2017</date>
+      <body>This is really just a test, not exactly a memo.</body>
+      <url>www.google.com</url>
+    </memo>
+  </user>
 </all_memos>

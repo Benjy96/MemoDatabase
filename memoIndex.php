@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 
-unset($_SESSION["formSubmitted"]);	//Prevent the memo display form from NOT refreshing
+$_SESSION["formSubmitted"] = false;	//Prevent the memo display form from NOT refreshing
 
 if(!isset($_SESSION["user"])){
 	header("Location: login.php");
@@ -135,7 +135,10 @@ function displayAddMemoSectionInvalid(){ ?>
 		var recipient = memos[current].getElementsByTagName("recipient")[0].childNodes[0].nodeValue;
 		var date = memos[current].getElementsByTagName("date")[0].childNodes[0].nodeValue;
 		var body = memos[current].getElementsByTagName("body")[0].childNodes[0].nodeValue;
-		var url = memos[current].getElementsByTagName("url")[0].childNodes[0].nodeValue;
+		
+		if(memos[current].getElementsByTagName("url")[0].childNodes.nodeValue != ""){
+			var url = memos[current].getElementsByTagName("url")[0].childNodes[0].nodeValue;
+		}
 		
 		document.getElementById("memoID").innerHTML = " " + memoId;
 		document.getElementById("title").innerHTML = " " + title;
