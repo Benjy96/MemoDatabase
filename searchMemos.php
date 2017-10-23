@@ -38,16 +38,16 @@ if(strlen($query) > 0){
 			if(stristr($currentMemo, $query) || stristr($date, $query)){
 				if($hint==""){
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
-					$currentMemo . ") " .
+					$currentMemo . ") \"" .
 					$currentTitle . 
-					", by ". $currentSender .
+					"\" by ". $currentSender .
 					" on " . $date .
 					"</div>";
 				}else{
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
-					$currentMemo . ") " .
+					$currentMemo . ") \"" .
 					$currentTitle . 
-					", by " . $currentSender . 
+					"\" by " . $currentSender . 
 					" on " . $date .
 					"</div>" . $hint;
 				}
@@ -80,16 +80,20 @@ if(strlen($query) > 0){
 			if(stristr($sender, $query) || stristr($recipient, $query) || stristr($title, $query)){
 				if($hint ==""){
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
-					$currentMemo . "), Sent to " .
+					$currentMemo . ") \"" .
+					$title .
+					"\". Sent to \"" .
 					$recipient . 
-					" by ". $sender .
+					"\" by ". $sender .
 					" on " . $date .
 					"</div>";
 				}else{
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
-					$currentMemo . "), Sent to " .
+					$currentMemo . ") \"" .
+					$title .
+					"\". Sent to \"" .
 					$recipient . 
-					" by " . $sender . 
+					"\" by " . $sender . 
 					" on " . $date .
 					"</div>" . $hint;
 				}
