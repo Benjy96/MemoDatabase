@@ -95,7 +95,10 @@ function displayAddMemoSectionInvalid(){ ?>
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML;
 	
+	//Get all memos each time we cycle or load the page
+	memos=xmlDoc.getElementsByTagName("memo"); 
 	
+	//Variable to track current memo displayed (index for memo array)
 	var current = 0;
 	
 	function nextMemo(){
@@ -119,8 +122,7 @@ function displayAddMemoSectionInvalid(){ ?>
 			current = 0;
 		}
 		
-		//Get all memos each time we cycle or load the page
-		memos=xmlDoc.getElementsByTagName("memo"); 
+
 	
 		//Update memo # and button enabled/disabled status
 		updateMemoDisplayedIndicator();
