@@ -101,19 +101,24 @@ function displayAddMemoSectionInvalid(){ ?>
 	function nextMemo(){
 		if(current < memos.length) {
 			current++;
-			showMemo(current);
+			showMemo(false);
 		}
 	}
 	
 	function previousMemo(){
 		if(current > 0){
 			current--;
-			showMemo(current);
+			showMemo(false);
 		}
 	}
 	
 	//Display a stored memo
-	function showMemo(){
+	function showMemo(reloaded){
+		//Ensure that we display the latest memo - browser behaviour can sometimes prevent it otherwise
+		if(reloaded == true){
+			current = 0;
+		}
+		
 		//Get all memos each time we cycle or load the page
 		memos=xmlDoc.getElementsByTagName("memo"); 
 	
@@ -189,7 +194,7 @@ function displayAddMemoSectionInvalid(){ ?>
 			}
 		}
 		if(found == false) current = temp;
-		showMemo();
+		showMemo(false);
 		document.getElementById("responsiveSearch").innerHTML = "";
 		document.getElementById("SearchMemos").value = "";
 	}
@@ -227,7 +232,7 @@ function displayAddMemoSectionInvalid(){ ?>
   
   </head>
   <!-- /HEADER -->
-<body onload="showMemo()">	<!-- Display memos on load -->
+<body onload="showMemo(true)">	<!-- Display memos on load -->
 
 <div class="container-fluid">
   <div class="row content">
