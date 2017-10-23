@@ -133,8 +133,8 @@ function displayAddMemoSectionInvalid(){ ?>
 		var sender = memos[current].parentNode.getAttribute("name");
 		
 		var memoId = memos[current].getAttribute("id");
-		if(lastMemoID == memoId) alert("hi");
-		lastMemoID = memoID;
+		if(lastMemoID == memoId) reload();
+		lastMemoID = memoId;
 		
 		var title = memos[current].getElementsByTagName("title")[0].childNodes[0].nodeValue;
 		var recipient = memos[current].getElementsByTagName("recipient")[0].childNodes[0].nodeValue;
