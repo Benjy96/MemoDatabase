@@ -122,8 +122,8 @@ function displayAddMemoSectionInvalid(){ ?>
 			current = 0;
 		}
 		
-
-	
+		alert("hi");
+		
 		//Update memo # and button enabled/disabled status
 		updateMemoDisplayedIndicator();
 		setButtons();
@@ -137,10 +137,7 @@ function displayAddMemoSectionInvalid(){ ?>
 		var recipient = memos[current].getElementsByTagName("recipient")[0].childNodes[0].nodeValue;
 		var date = memos[current].getElementsByTagName("date")[0].childNodes[0].nodeValue;
 		var body = memos[current].getElementsByTagName("body")[0].childNodes[0].nodeValue;
-		
-		if(memos[current].getElementsByTagName("url")[0].childNodes.nodeValue != ""){
-			var url = memos[current].getElementsByTagName("url")[0].childNodes[0].nodeValue;
-		}
+		var url = memos[current].getElementsByTagName("url")[0].childNodes[0].nodeValue;
 		
 		document.getElementById("memoID").innerHTML = " " + memoId;
 		document.getElementById("title").innerHTML = " " + title;
