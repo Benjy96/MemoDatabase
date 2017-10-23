@@ -80,16 +80,16 @@ if(strlen($query) > 0){
 			if(stristr($sender, $query) || stristr($recipient, $query) || stristr($title, $query)){
 				if($hint ==""){
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
-					$currentMemo . "), Sent to " .
+					$currentMemo . "), Sent to \"" .
 					$recipient . 
-					" by ". $sender .
+					"\" by ". $sender .
 					" on " . $date .
 					"</div>";
 				}else{
 					$hint = "<div class='panel-body' onclick='getCurrentById($currentMemo)'>(" . 
-					$currentMemo . "), Sent to " .
+					$currentMemo . "), Sent to \"" .
 					$recipient . 
-					" by " . $sender . 
+					"\" by " . $sender . 
 					" on " . $date .
 					"</div>" . $hint;
 				}
