@@ -92,7 +92,8 @@ function displayAddMemoSectionInvalid(){ ?>
 		var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	
-	xmlhttp.open("GET","memos.xml",false);
+	//BUG/ISSUE: WAS USING GET, AND WAS BEING CACHED, MEANING THE PAGE WOULD SOMETIMES NOT UPDATE - Now using POST to "retrieve" data
+	xmlhttp.open("POST","memos.xml",false);
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML;
 	memos=xmlDoc.getElementsByTagName("memo"); 
@@ -118,7 +119,7 @@ function displayAddMemoSectionInvalid(){ ?>
 	function showMemo(reloaded){
 		//Not needed, but for my paranoia: ensure that we display the latest memo - browser behaviour can sometimes prevent it otherwise
 		if(reloaded == true){
-			current = 0;
+			current = 0; 
 		}
 
 		//Update memo # and button enabled/disabled status
