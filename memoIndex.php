@@ -114,7 +114,6 @@ function displayAddMemoSectionInvalid(){ ?>
 	
 	//Display a stored memo
 	function showMemo(){
-		alert("hi");
 		//Get all memos each time we cycle or load the page
 		memos=xmlDoc.getElementsByTagName("memo"); 
 	
