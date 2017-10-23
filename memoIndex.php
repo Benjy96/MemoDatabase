@@ -7,8 +7,6 @@ if(!isset($_SESSION["user"])){
 	header("Location: login.php");
 }
 
-// ----- DISPLAY FUNCTIONS ----- //
-
 function displayAddMemoSection(){ ?>
 	<h4>Create a Memo:</h4>
       <form role="form" action="addMemo.php" method="post">
@@ -63,7 +61,6 @@ function displayAddMemoSectionInvalid(){ ?>
       </form>
 <?php 
 }
-// ----- /DISPLAY FUNCTIONS ----- //
 ?>
 
 <!DOCTYPE html>
@@ -94,21 +91,12 @@ function displayAddMemoSectionInvalid(){ ?>
 	} else { // IE6, IE5
 		var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-<<<<<<< HEAD
-	
-	//Window variables - kept updated
-=======
->>>>>>> parent of dbf8230... Refresh javascript variables on page reload
 	xmlhttp.open("GET","memos.xml",false);
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML;
 	
-<<<<<<< HEAD
-	//Index variable to cycle through memos
-=======
 	//get all memos
 	memos=xmlDoc.getElementsByTagName("memo"); 
->>>>>>> parent of dbf8230... Refresh javascript variables on page reload
 	var current = 0;
 	
 	function nextMemo(){
@@ -203,7 +191,6 @@ function displayAddMemoSectionInvalid(){ ?>
 		document.getElementById("SearchMemos").value = "";
 	}
 	
-	//AJAX Search Functionality
 	function showResult(string){
 		//Hide the dropdown result box
 		if(string.length == 0){
@@ -234,10 +221,10 @@ function displayAddMemoSectionInvalid(){ ?>
 	});
 	</script>
 	<!-- /JQuery -->
+  
   </head>
   <!-- /HEADER -->
-
-<body onload="showMemo()">	<!-- Display latest memo on load -->
+<body onload="showMemo()">	<!-- Display memos on load -->
 
 <div class="container-fluid">
   <div class="row content">
@@ -302,10 +289,10 @@ function displayAddMemoSectionInvalid(){ ?>
 			<p id="body">Body</p>
 			<footer id="sender"> name</footer>
 		  </blockquote>
-		  <span class="glyphicon glyphicon-envelope"></span> <p class="inline bg-info">RECIPIENT:</p><p id="recipient" class="inline"> </p></br>
-		  <span class="glyphicon glyphicon-time"></span> <p class="inline bg-info">DATE:</p><p id="date" class="inline"> </p></br>
-		  <span class="glyphicon glyphicon-barcode"></span> <p class="inline bg-info">MEMO ID:</p><p id="memoID" class="inline"> </p></br>
-		  <span class="glyphicon glyphicon-link"></span> <p class="inline bg-info">URL:</p><a id="url" class="inline"> </a>
+		  <span class="glyphicon glyphicon-envelope"></span> <p class="inline bg-info">RECIPIENT:</p><p id="recipient" class="inline"> somebody</p></br>
+		  <span class="glyphicon glyphicon-time"></span> <p class="inline bg-info">DATE:</p><p id="date" class="inline"> 666/666/666</p></br>
+		  <span class="glyphicon glyphicon-barcode"></span> <p class="inline bg-info">MEMO ID:</p><p id="memoID" class="inline"> memoid: #342423432</p></br>
+		  <span class="glyphicon glyphicon-link"></span> <p class="inline bg-info">URL:</p><a id="url" class="inline"> memoid: #342423432</a>
 	  </div>
 	  
 	  <button type="button" id="prevMemoButton" onclick="previousMemo()" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
@@ -316,7 +303,8 @@ function displayAddMemoSectionInvalid(){ ?>
 
 	  <!-- ADD MEMO SECTION -->
       <?php 
-	  //Only display the add memo section if we have write priveleges. Everyone but the "guest" account has write priveleges for this memo database
+	  //Only display the add memo section if we have write priveleges. Everyone but the "guest" account has write priveleges for this memo database.
+	  
 	  if(!($_SESSION["user"] == "guest")){
 		  if($_SESSION["invalidFormData"] == true){
 			displayAddMemoSectionInvalid();
@@ -326,6 +314,7 @@ function displayAddMemoSectionInvalid(){ ?>
 	  }
 	  ?>
 	  <!-- /ADD MEMO SECTION -->
+	  
     </div>
 	<!-- RIGHT CONTAINER -->
   </div>
