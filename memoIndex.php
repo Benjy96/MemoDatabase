@@ -101,6 +101,9 @@ function displayAddMemoSectionInvalid(){ ?>
 	//Variable to track current memo displayed (index for memo array)
 	var current = 0;
 	
+	//Variable to fix concurrency issue. Check whether XML has updated before page refreshed.
+	var lastMemoID = "";
+	
 	function nextMemo(){
 		if(current < memos.length) {
 			current++;
@@ -117,7 +120,7 @@ function displayAddMemoSectionInvalid(){ ?>
 	
 	//Display a stored memo
 	function showMemo(reloaded){
-		//Ensure that we display the latest memo - browser behaviour can sometimes prevent it otherwise
+		//Not needed, but for my paranoia: ensure that we display the latest memo - browser behaviour can sometimes prevent it otherwise
 		if(reloaded == true){
 			current = 0;
 		}
@@ -130,6 +133,8 @@ function displayAddMemoSectionInvalid(){ ?>
 		var sender = memos[current].parentNode.getAttribute("name");
 		
 		var memoId = memos[current].getAttribute("id");
+		if(lastMemoID == memoId) alert("hi");
+		lastMemoID = memoID;
 		
 		var title = memos[current].getElementsByTagName("title")[0].childNodes[0].nodeValue;
 		var recipient = memos[current].getElementsByTagName("recipient")[0].childNodes[0].nodeValue;
