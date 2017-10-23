@@ -122,8 +122,6 @@ function displayAddMemoSectionInvalid(){ ?>
 			current = 0;
 		}
 		
-		alert("hi");
-		
 		//Update memo # and button enabled/disabled status
 		updateMemoDisplayedIndicator();
 		setButtons();
