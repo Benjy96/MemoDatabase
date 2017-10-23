@@ -7,6 +7,8 @@ if(!isset($_SESSION["user"])){
 	header("Location: login.php");
 }
 
+// ----- DISPLAY FUNCTIONS ----- //
+
 function displayAddMemoSection(){ ?>
 	<h4>Create a Memo:</h4>
       <form role="form" action="addMemo.php" method="post">
@@ -61,6 +63,7 @@ function displayAddMemoSectionInvalid(){ ?>
       </form>
 <?php 
 }
+// ----- /DISPLAY FUNCTIONS ----- //
 ?>
 
 <!DOCTYPE html>
@@ -91,12 +94,13 @@ function displayAddMemoSectionInvalid(){ ?>
 	} else { // IE6, IE5
 		var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
+	
 	//Window variables - kept updated
 	xmlhttp.open("GET","memos.xml",false);
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML;
 	
-
+	//Index variable to cycle through memos
 	var current = 0;
 	
 	function nextMemo(){
@@ -195,6 +199,7 @@ function displayAddMemoSectionInvalid(){ ?>
 		document.getElementById("SearchMemos").value = "";
 	}
 	
+	//AJAX Search Functionality
 	function showResult(string){
 		//Hide the dropdown result box
 		if(string.length == 0){
@@ -225,10 +230,10 @@ function displayAddMemoSectionInvalid(){ ?>
 	});
 	</script>
 	<!-- /JQuery -->
-  
   </head>
   <!-- /HEADER -->
-<body onload="showMemo()">	<!-- Display memos on load -->
+
+<body onload="showMemo()">	<!-- Display latest memo on load -->
 
 <div class="container-fluid">
   <div class="row content">
@@ -307,8 +312,7 @@ function displayAddMemoSectionInvalid(){ ?>
 
 	  <!-- ADD MEMO SECTION -->
       <?php 
-	  //Only display the add memo section if we have write priveleges. Everyone but the "guest" account has write priveleges for this memo database.
-	  
+	  //Only display the add memo section if we have write priveleges. Everyone but the "guest" account has write priveleges for this memo database
 	  if(!($_SESSION["user"] == "guest")){
 		  if(isset($_SESSION["invalidFormData"]) && $_SESSION["invalidFormData"] == true){
 			displayAddMemoSectionInvalid();
@@ -318,7 +322,6 @@ function displayAddMemoSectionInvalid(){ ?>
 	  }
 	  ?>
 	  <!-- /ADD MEMO SECTION -->
-	  
     </div>
 	<!-- RIGHT CONTAINER -->
   </div>
