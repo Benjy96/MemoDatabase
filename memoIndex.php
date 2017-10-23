@@ -1,5 +1,6 @@
 <?php 
 session_start(); 
+
 $_SESSION["formSubmitted"] = false;	//Prevent the memo display form from NOT refreshing
 
 if(!isset($_SESSION["user"])){
@@ -84,12 +85,13 @@ function displayAddMemoSectionInvalid(){ ?>
 	<!-- Custom JavaScript -->
 	<script type="text/javascript">
 	var memos;
-	
+
 	if (window.XMLHttpRequest) { // IE7+, Firefox, Chrome, Opera, Safari
 		var xmlhttp=new XMLHttpRequest();
 	} else { // IE6, IE5
 		var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
+	
 	xmlhttp.open("GET","memos.xml",false);
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML;
