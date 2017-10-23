@@ -293,10 +293,10 @@ function displayAddMemoSectionInvalid(){ ?>
 			<p id="body">Body</p>
 			<footer id="sender"> name</footer>
 		  </blockquote>
-		  <span class="glyphicon glyphicon-envelope"></span> <p class="inline bg-info">RECIPIENT:</p><p id="recipient" class="inline"> somebody</p></br>
-		  <span class="glyphicon glyphicon-time"></span> <p class="inline bg-info">DATE:</p><p id="date" class="inline"> 666/666/666</p></br>
-		  <span class="glyphicon glyphicon-barcode"></span> <p class="inline bg-info">MEMO ID:</p><p id="memoID" class="inline"> memoid: #342423432</p></br>
-		  <span class="glyphicon glyphicon-link"></span> <p class="inline bg-info">URL:</p><a id="url" class="inline"> memoid: #342423432</a>
+		  <span class="glyphicon glyphicon-envelope"></span> <p class="inline bg-info">RECIPIENT:</p><p id="recipient" class="inline"> </p></br>
+		  <span class="glyphicon glyphicon-time"></span> <p class="inline bg-info">DATE:</p><p id="date" class="inline"> </p></br>
+		  <span class="glyphicon glyphicon-barcode"></span> <p class="inline bg-info">MEMO ID:</p><p id="memoID" class="inline"> </p></br>
+		  <span class="glyphicon glyphicon-link"></span> <p class="inline bg-info">URL:</p><a id="url" class="inline"> </a>
 	  </div>
 	  
 	  <button type="button" id="prevMemoButton" onclick="previousMemo()" class="btn btn-primary disabled" disabled="disabled">Previous Memo</button>
