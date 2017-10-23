@@ -306,7 +306,7 @@ function displayAddMemoSectionInvalid(){ ?>
 	  //Only display the add memo section if we have write priveleges. Everyone but the "guest" account has write priveleges for this memo database.
 	  
 	  if(!($_SESSION["user"] == "guest")){
-		  if($_SESSION["invalidFormData"] == true){
+		  if(isset($_SESSION["invalidFormData"]) && $_SESSION["invalidFormData"] == true){
 			displayAddMemoSectionInvalid();
 		  }else{
 			displayAddMemoSection();
