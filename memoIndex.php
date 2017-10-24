@@ -85,6 +85,8 @@ function displayAddMemoSectionInvalid(){ ?>
 	<!-- Custom JavaScript -->
 	<script type="text/javascript">
 	var memos;
+	var users;
+	var lastUpdated;
 
 	if (window.XMLHttpRequest) { // IE7+, Firefox, Chrome, Opera, Safari
 		var xmlhttp=new XMLHttpRequest();
@@ -97,9 +99,15 @@ function displayAddMemoSectionInvalid(){ ?>
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML;
 	memos=xmlDoc.getElementsByTagName("memo"); 
+	users=xmlDoc.getElementsByTagName("user");
+	lastUpdated=xmlDoc.getElementsByTagName("last_updated");
 	
 	//Variable to track current memo displayed (index for memo array)
 	var current = 0;
+	var latestIndex = 0;
+	
+	//Get last updated memo
+	var lastUser = lastUpdated[0].childNodes[0].nodeValue;
 	
 	function nextMemo(){
 		if(current < memos.length) {
@@ -119,11 +127,10 @@ function displayAddMemoSectionInvalid(){ ?>
 	function showMemo(reloaded){
 		//Not needed, but for my paranoia: ensure that we display the latest memo - browser behaviour can sometimes prevent it otherwise
 		if(reloaded == true){
-			current = 0; 
+			getLatestIndexByUser(lastUser);		
 		}
-
 		//Update memo # and button enabled/disabled status
-		updateMemoDisplayedIndicator();
+		updateMemoDisplayedIndicator();	
 		setButtons();
 		
 		//Get all memo information
@@ -153,7 +160,7 @@ function displayAddMemoSectionInvalid(){ ?>
 		var element = document.getElementById("whichMemo");
 		var index = memos.length - current;
 		
-		if(current == 0){
+		if(current == latestIndex){
 			element.innerHTML = "LATEST MEMO (#" + index + ")";
 		}else{	
 			element.innerHTML = "MEMO #" + index;
@@ -177,6 +184,21 @@ function displayAddMemoSectionInvalid(){ ?>
 			document.getElementById("nextMemoButton").disabled = false;
 			document.getElementById("nextMemoButton").className = "btn btn-primary";
 		}
+	}
+	
+	//Identify a memo by its unique ID, and convert to an index (current)
+	function getLatestIndexByUser(passedUser){
+		for(i = 0; i < memos.length; i++){
+			var tempName = memos[i].parentNode.getAttribute("name");
+			if(tempName == passedUser){
+				current++;
+				break;
+			}else{
+				current++;
+			}
+		}
+		current--;	//Adjust array index/xml pos
+		latestIndex = current;
 	}
 	
 	//Identify a memo by its unique ID, and convert to an index (current)
