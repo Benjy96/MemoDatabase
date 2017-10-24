@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <all_memos>
-  <last_updated>admin</last_updated>
-  <user name="Bob">
+  <last_updated>Bob</last_updated>
+  <user name="Bob"><memo id="2203"><title>HELP</title><recipient>God</recipient><date>24/10/17</date><body>DEAR {recipient}, PLEASE LET THIS WORK!</body><url> </url></memo>
 	</user>
   <user name="test">
 	</user>
