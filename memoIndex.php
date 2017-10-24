@@ -161,9 +161,9 @@ function displayAddMemoSectionInvalid(){ ?>
 		var index = memos.length - current;
 		
 		if(current == latestIndex){
-			element.innerHTML = "LATEST MEMO (#" + index + ")";
+			element.innerHTML = "LATEST MEMO CREATED (Directory #" + index + ")";
 		}else{	
-			element.innerHTML = "MEMO #" + index;
+			element.innerHTML = "MEMO Directory #" + index;
 		}
 	}
 	
